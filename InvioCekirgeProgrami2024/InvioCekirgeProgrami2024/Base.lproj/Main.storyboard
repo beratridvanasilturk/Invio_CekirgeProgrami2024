@@ -27,7 +27,7 @@
         <!--Root View Controller-->
         <scene sceneID="fhL-jg-0eZ">
             <objects>
-                <tableViewController id="rhd-Tf-Njq" customClass="MainViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="rhd-Tf-Njq" customClass="MainTableViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="8q8-2B-jP0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,23 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0oA-5U-ii5" id="QzT-uk-iNT">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loading" id="kFg-YR-SiV">
+                                <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kFg-YR-SiV" id="mTD-bJ-2dz">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HXh-43-8pr">
+                                            <rect key="frame" x="178" y="3.3333333333333321" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="HXh-43-8pr" firstAttribute="centerX" secondItem="mTD-bJ-2dz" secondAttribute="centerX" id="Hkw-Zd-rZF"/>
+                                        <constraint firstItem="HXh-43-8pr" firstAttribute="centerY" secondItem="mTD-bJ-2dz" secondAttribute="centerY" id="LOk-uh-yBl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTq-hl-vv7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260" y="737"/>
+            <point key="canvasLocation" x="258.77862595419845" y="736.61971830985919"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="YYL-8W-Nev">

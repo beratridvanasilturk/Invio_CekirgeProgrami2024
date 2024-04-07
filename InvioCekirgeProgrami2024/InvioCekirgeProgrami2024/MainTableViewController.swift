@@ -24,7 +24,7 @@ class MainTableViewController: UITableViewController {
     
     @objc private func refreshData() {
         currentPage = 1
-        fetchData(pageNum: 1, refresh: true)
+        fetchData(pageNum: currentPage, refresh: true)
     }
     
     func fetchData(pageNum: Int, refresh: Bool = false) {
@@ -35,15 +35,19 @@ class MainTableViewController: UITableViewController {
         }
         
         let urlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/page-\(pageNum).json"
-        let url = URL(string: urlString)
         
-        guard url != nil else {
+        guard let url = URL(string: urlString) else {
             print("😵😵😵 URL ERROR")
             return
         }
         
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: url!) { data, response, error in
+        let dataTask = session.dataTask(with: url) { data, response, error in
+            guard error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            
             DispatchQueue.main.async {
                 if refresh {
                     self.dataArray.removeAll()
@@ -51,18 +55,20 @@ class MainTableViewController: UITableViewController {
                     print("🔄🔄🔄 Refreshed")
                 }
             }
-            if error == nil, data != nil {
+            if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let parsingData = try decoder.decode(MainResponseModel.self, from: data!)
+                    let parsingData = try decoder.decode(MainResponseModel.self, from: data)
                     self.totalPage = parsingData.totalPage ?? 1
-                    self.dataArray.append(contentsOf: parsingData.data!)
+                    if let parsingData = parsingData.data {
+                        self.dataArray.append(contentsOf: parsingData)
+                    }
                     print("Cities Count = \(self.dataArray.count)")
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                } catch {
-                    print("⭕️⭕️⭕️ PARSING ERROR")
+                } catch(let err) {
+                    print("⭕️⭕️⭕️ PARSING ERROR \(err.localizedDescription)")
                 }
             }
         }
@@ -81,7 +87,6 @@ class MainTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             let data = dataArray[indexPath.row]
             cell.textLabel?.text = data.province
-            cell.accessoryType = .detailDisclosureButton
             return cell
         }
     }

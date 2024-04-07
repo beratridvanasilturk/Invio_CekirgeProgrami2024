@@ -16,7 +16,6 @@
 		98A5F8272BBD7BB8008AE472 /* MainResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8262BBD7BB8008AE472 /* MainResponseModel.swift */; };
 		98A5F8292BBD806D008AE472 /* UniversitiesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8282BBD806D008AE472 /* UniversitiesResponseModel.swift */; };
 		98A5F82B2BBD809C008AE472 /* DataResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F82A2BBD809C008AE472 /* DataResponseModel.swift */; };
-		98A5F82D2BBE167D008AE472 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F82C2BBE167D008AE472 /* APICaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		98A5F8262BBD7BB8008AE472 /* MainResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponseModel.swift; sourceTree = "<group>"; };
 		98A5F8282BBD806D008AE472 /* UniversitiesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitiesResponseModel.swift; sourceTree = "<group>"; };
 		98A5F82A2BBD809C008AE472 /* DataResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponseModel.swift; sourceTree = "<group>"; };
-		98A5F82C2BBE167D008AE472 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +43,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9866FE032BC32F4C00C9C478 /* MainTableView */ = {
+			isa = PBXGroup;
+			children = (
+				9866FE062BC32F7E00C9C478 /* ViewController */,
+				9866FE072BC32FA800C9C478 /* ViewModel */,
+				9866FE052BC32F6700C9C478 /* Models */,
+			);
+			path = MainTableView;
+			sourceTree = "<group>";
+		};
+		9866FE042BC32F5900C9C478 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				9866FE092BC32FB600C9C478 /* ViewController */,
+				9866FE082BC32FAF00C9C478 /* ViewModel */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		9866FE052BC32F6700C9C478 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98A5F8262BBD7BB8008AE472 /* MainResponseModel.swift */,
+				98A5F82A2BBD809C008AE472 /* DataResponseModel.swift */,
+				98A5F8282BBD806D008AE472 /* UniversitiesResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9866FE062BC32F7E00C9C478 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				98A5F8122BBD64F5008AE472 /* MainTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9866FE072BC32FA800C9C478 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9866FE082BC32FAF00C9C478 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9866FE092BC32FB600C9C478 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		98A5F8022BBD64F5008AE472 = {
 			isa = PBXGroup;
 			children = (
@@ -64,13 +120,10 @@
 		98A5F80D2BBD64F5008AE472 /* InvioCekirgeProgrami2024 */ = {
 			isa = PBXGroup;
 			children = (
+				9866FE042BC32F5900C9C478 /* Favorites */,
+				9866FE032BC32F4C00C9C478 /* MainTableView */,
 				98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */,
 				98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */,
-				98A5F8122BBD64F5008AE472 /* MainTableViewController.swift */,
-				98A5F8262BBD7BB8008AE472 /* MainResponseModel.swift */,
-				98A5F82A2BBD809C008AE472 /* DataResponseModel.swift */,
-				98A5F8282BBD806D008AE472 /* UniversitiesResponseModel.swift */,
-				98A5F82C2BBE167D008AE472 /* APICaller.swift */,
 				98A5F8142BBD64F5008AE472 /* Main.storyboard */,
 				98A5F8172BBD64F6008AE472 /* Assets.xcassets */,
 				98A5F8192BBD64F6008AE472 /* LaunchScreen.storyboard */,
@@ -153,7 +206,6 @@
 				98A5F8292BBD806D008AE472 /* UniversitiesResponseModel.swift in Sources */,
 				98A5F82B2BBD809C008AE472 /* DataResponseModel.swift in Sources */,
 				98A5F8132BBD64F5008AE472 /* MainTableViewController.swift in Sources */,
-				98A5F82D2BBE167D008AE472 /* APICaller.swift in Sources */,
 				98A5F80F2BBD64F5008AE472 /* AppDelegate.swift in Sources */,
 				98A5F8272BBD7BB8008AE472 /* MainResponseModel.swift in Sources */,
 				98A5F8112BBD64F5008AE472 /* SceneDelegate.swift in Sources */,

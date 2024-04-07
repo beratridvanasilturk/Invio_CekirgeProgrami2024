@@ -5,6 +5,15 @@
 //  Created by Berat Ridvan Asilturk on 3.04.2024.
 //
 
+// TODO: - Classlar final
+// Parametleler ve methodlar private // encapsulation
+// MVVM cevir
+// OPTIONAL KURTUL
+// KLASORLE
+// Favoriler Realm
+// Printler kaldirilabilir proje tesliminde
+// DidLoad Refactor Edilecek
+
 import UIKit
 
 class MainTableViewController: UITableViewController {
@@ -17,6 +26,8 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // FUNC YAPILACAK
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         refreshData()
@@ -27,14 +38,15 @@ class MainTableViewController: UITableViewController {
         fetchData(pageNum: currentPage, refresh: true)
     }
     
-    func fetchData(pageNum: Int, refresh: Bool = false) {
+    private func fetchData(pageNum: Int, refresh: Bool = false) {
         DispatchQueue.main.async {
             if refresh {
                 self.refreshControl?.beginRefreshing()
             }
         }
         
-        let urlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/page-\(pageNum).json"
+        let baseUrlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/"
+        let urlString = baseUrlString + "page-\(pageNum).json"
         
         guard let url = URL(string: urlString) else {
             print("😵😵😵 URL ERROR")
@@ -43,11 +55,18 @@ class MainTableViewController: UITableViewController {
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: url) { data, response, error in
+            
             guard error == nil else {
                 print(error?.localizedDescription)
                 return
             }
             
+            guard let data = data else {
+                return
+            }
+            
+            
+            // FUNC YAPILACAK
             DispatchQueue.main.async {
                 if refresh {
                     self.dataArray.removeAll()
@@ -55,21 +74,24 @@ class MainTableViewController: UITableViewController {
                     print("🔄🔄🔄 Refreshed")
                 }
             }
-            if let data = data {
-                let decoder = JSONDecoder()
-                do {
-                    let parsingData = try decoder.decode(MainResponseModel.self, from: data)
-                    self.totalPage = parsingData.totalPage ?? 1
-                    if let parsingData = parsingData.data {
-                        self.dataArray.append(contentsOf: parsingData)
-                    }
-                    print("Cities Count = \(self.dataArray.count)")
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                } catch(let err) {
-                    print("⭕️⭕️⭕️ PARSING ERROR \(err.localizedDescription)")
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let responseModel = try decoder.decode(MainResponseModel.self, from: data)
+                self.totalPage = responseModel.totalPage ?? 1
+                if let parsingData = responseModel.data {
+                    self.dataArray.append(contentsOf: parsingData)
                 }
+                
+                print("Cities Count = \(self.dataArray.count)")
+               
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            } catch(let err) {
+                print("⭕️⭕️⭕️ PARSING ERROR \(err.localizedDescription)")
             }
         }
         dataTask.resume()
@@ -80,6 +102,7 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if currentPage < totalPage && indexPath.row == dataArray.count - 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loading")
             return cell!
@@ -91,6 +114,7 @@ class MainTableViewController: UITableViewController {
         }
     }
     
+    // Pagination / Sayfalama
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if currentPage < totalPage && indexPath.row == dataArray.count - 1 {
             currentPage = currentPage + 1

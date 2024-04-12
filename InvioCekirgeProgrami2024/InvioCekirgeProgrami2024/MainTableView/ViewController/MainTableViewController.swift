@@ -16,13 +16,13 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+final class MainTableViewController: UITableViewController {
     
-    let cellIdentifier = "cellIdentifier"
-    let taskUrl = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/page-1.json"
-    var dataArray = [DataResponseModel]()
-    var totalPage = 1
-    var currentPage = 1
+    private let cellIdentifier = "cellIdentifier"
+    private var dataArray = [DataResponseModel]()
+    private var totalPage = 1
+    private var currentPage = 1
+    private var refresh = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class MainTableViewController: UITableViewController {
         
     }
     
-    private func fetchData(pageNum: Int, refresh: Bool = false) {
+    private func fetchData(pageNum: Int) {
         
         checkRefreshing()
         
@@ -76,10 +76,11 @@ class MainTableViewController: UITableViewController {
         
         func checkRefreshing() {
             DispatchQueue.main.async {
-                if refresh {
+                if self.refresh {
                     self.refreshControl?.beginRefreshing()
                     self.dataArray.removeAll()
                     self.refreshControl?.endRefreshing()
+                    self.refresh.toggle()
                     print("🔄🔄🔄 Refreshed")
                 }
             }
@@ -113,22 +114,21 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if currentPage < totalPage && indexPath.row == dataArray.count - 1 {
             currentPage = currentPage + 1
-            fetchData(pageNum: currentPage, refresh: false)
+            fetchData(pageNum: currentPage)
         }
     }
     
-    func loadDatas() {
+    private func loadDatas() {
 
-        fetchData(pageNum: currentPage, refresh: false)
-        
+        fetchData(pageNum: currentPage)
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     
     @objc private func refreshData() {
         currentPage = 1
-        fetchData(pageNum: currentPage, refresh: true)
+        refresh = true
+        fetchData(pageNum: currentPage)
     }
-    
     
 }

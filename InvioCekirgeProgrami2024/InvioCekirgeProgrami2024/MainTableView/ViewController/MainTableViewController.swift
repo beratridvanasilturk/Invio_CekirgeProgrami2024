@@ -27,23 +27,13 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // FUNC YAPILACAK
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        refreshData()
-    }
-    
-    @objc private func refreshData() {
-        currentPage = 1
-        fetchData(pageNum: currentPage, refresh: true)
+        loadDatas()
+        
     }
     
     private func fetchData(pageNum: Int, refresh: Bool = false) {
-        DispatchQueue.main.async {
-            if refresh {
-                self.refreshControl?.beginRefreshing()
-            }
-        }
+        
+        checkRefreshing()
         
         let baseUrlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/"
         let urlString = baseUrlString + "page-\(pageNum).json"
@@ -65,16 +55,6 @@ class MainTableViewController: UITableViewController {
                 return
             }
             
-            
-            // FUNC YAPILACAK
-            DispatchQueue.main.async {
-                if refresh {
-                    self.dataArray.removeAll()
-                    self.refreshControl?.endRefreshing()
-                    print("🔄🔄🔄 Refreshed")
-                }
-            }
-            
             let decoder = JSONDecoder()
             
             do {
@@ -86,15 +66,30 @@ class MainTableViewController: UITableViewController {
                 
                 print("Cities Count = \(self.dataArray.count)")
                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                reloadData()
                 
             } catch(let err) {
                 print("⭕️⭕️⭕️ PARSING ERROR \(err.localizedDescription)")
             }
         }
         dataTask.resume()
+        
+        func checkRefreshing() {
+            DispatchQueue.main.async {
+                if refresh {
+                    self.refreshControl?.beginRefreshing()
+                    self.dataArray.removeAll()
+                    self.refreshControl?.endRefreshing()
+                    print("🔄🔄🔄 Refreshed")
+                }
+            }
+        }
+        
+        func reloadData() {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,4 +116,19 @@ class MainTableViewController: UITableViewController {
             fetchData(pageNum: currentPage, refresh: false)
         }
     }
+    
+    func loadDatas() {
+
+        fetchData(pageNum: currentPage, refresh: false)
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    
+    @objc private func refreshData() {
+        currentPage = 1
+        fetchData(pageNum: currentPage, refresh: true)
+    }
+    
+    
 }

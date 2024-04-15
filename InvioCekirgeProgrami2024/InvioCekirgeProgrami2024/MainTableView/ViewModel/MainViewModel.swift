@@ -54,11 +54,11 @@ final class MainViewModel {
                     var contentList = [ExpandableCellContentModel]()
                     
                     dataModel.universities?.forEach({ model in
-                        let contentModel = ExpandableCellContentModel(hideContent: true, universityModel: model)
+                        let contentModel = ExpandableCellContentModel(universityModel: model)
                         contentList.append(contentModel)
                     })
                     
-                    let sectionItem = Section(dataModel: dataModel, hideContent: true, contentList: contentList)
+                    let sectionItem = Section(dataModel: dataModel, contentList: contentList)
                     self.sections.append(sectionItem)
                 }
                

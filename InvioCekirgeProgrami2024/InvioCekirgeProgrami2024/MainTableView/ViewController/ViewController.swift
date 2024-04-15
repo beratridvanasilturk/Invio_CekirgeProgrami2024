@@ -22,36 +22,6 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.init(coder: coder)
     }
     
-    
-//    var sections: [Section] = [
-//        Section(
-//            mainCellTitle: "1~3",
-//            hideContent: true,
-//            contentList: [
-//                ExpandableCellContentModel(title: "1", hideContent: true),
-//                ExpandableCellContentModel(title: "2", hideContent: true),
-//                ExpandableCellContentModel(title: "3", hideContent: true)
-//            ]),
-//        Section(
-//            mainCellTitle: "4~6",
-//            hideContent: true,
-//            contentList: [
-//                ExpandableCellContentModel(title: "4", hideContent: true),
-//                ExpandableCellContentModel(title: "5", hideContent: true),
-//                ExpandableCellContentModel(title: "6", hideContent: true)
-//            ]),
-//        Section(
-//            mainCellTitle: "7~9",
-//            hideContent: true,
-//            contentList: [
-//                ExpandableCellContentModel(title: "7", hideContent: true),
-//                ExpandableCellContentModel(title: "8", hideContent: true),
-//                ExpandableCellContentModel(title: "9", hideContent: true)
-//            ]),
-//    ]
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +30,6 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
-        
         
         getData()
     }

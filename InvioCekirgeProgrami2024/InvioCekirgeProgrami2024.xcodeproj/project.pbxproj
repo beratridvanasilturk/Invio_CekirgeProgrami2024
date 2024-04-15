@@ -149,8 +149,8 @@
 		98B7C25A2BC9B36800752196 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				98B7C2602BC9B3C500752196 /* ExpandableCell */,
 				98B7C25B2BC9B36E00752196 /* MainCell */,
+				98B7C2602BC9B3C500752196 /* ExpandableCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

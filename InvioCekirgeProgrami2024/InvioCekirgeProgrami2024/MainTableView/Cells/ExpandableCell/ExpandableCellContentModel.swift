@@ -13,6 +13,7 @@ struct ExpandableCellContentModel {
 }
 
 struct Section {
+    var dataModel: DataResponseModel?
     var mainCellTitle: String
     var hideContent: Bool
     var contentList: [ExpandableCellContentModel]

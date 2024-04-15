@@ -13,6 +13,8 @@ final class MainViewModel {
     var totalPage = 1
     var currentPage = 1 
     
+    var sections: [Section] = []
+        
     func fetchData(pageNum: Int, completion: (() -> Void)? = nil) {
         
         let baseUrlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/"
@@ -45,6 +47,12 @@ final class MainViewModel {
                 }
                 
                 print("🟡🟡🟡 Cities Count = \(self.dataArray.count)")
+                
+                // Sectionlari doldururuz
+                self.dataArray.forEach { dataModel in
+                    let sectionItem = Section(dataModel: dataModel, mainCellTitle: "A", hideContent: true, contentList: [])
+                    self.sections.append(sectionItem)
+                }
                
                 completion?()
                 

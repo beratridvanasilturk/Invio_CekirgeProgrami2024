@@ -23,32 +23,32 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    var sections: [Section] = [
-        Section(
-            mainCellTitle: "1~3",
-            hideContent: true,
-            contentList: [
-                ExpandableCellContentModel(title: "1", hideContent: true),
-                ExpandableCellContentModel(title: "2", hideContent: true),
-                ExpandableCellContentModel(title: "3", hideContent: true)
-            ]),
-        Section(
-            mainCellTitle: "4~6",
-            hideContent: true,
-            contentList: [
-                ExpandableCellContentModel(title: "4", hideContent: true),
-                ExpandableCellContentModel(title: "5", hideContent: true),
-                ExpandableCellContentModel(title: "6", hideContent: true)
-            ]),
-        Section(
-            mainCellTitle: "7~9",
-            hideContent: true,
-            contentList: [
-                ExpandableCellContentModel(title: "7", hideContent: true),
-                ExpandableCellContentModel(title: "8", hideContent: true),
-                ExpandableCellContentModel(title: "9", hideContent: true)
-            ]),
-    ]
+//    var sections: [Section] = [
+//        Section(
+//            mainCellTitle: "1~3",
+//            hideContent: true,
+//            contentList: [
+//                ExpandableCellContentModel(title: "1", hideContent: true),
+//                ExpandableCellContentModel(title: "2", hideContent: true),
+//                ExpandableCellContentModel(title: "3", hideContent: true)
+//            ]),
+//        Section(
+//            mainCellTitle: "4~6",
+//            hideContent: true,
+//            contentList: [
+//                ExpandableCellContentModel(title: "4", hideContent: true),
+//                ExpandableCellContentModel(title: "5", hideContent: true),
+//                ExpandableCellContentModel(title: "6", hideContent: true)
+//            ]),
+//        Section(
+//            mainCellTitle: "7~9",
+//            hideContent: true,
+//            contentList: [
+//                ExpandableCellContentModel(title: "7", hideContent: true),
+//                ExpandableCellContentModel(title: "8", hideContent: true),
+//                ExpandableCellContentModel(title: "9", hideContent: true)
+//            ]),
+//    ]
     
     
     
@@ -62,7 +62,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         
         
-//        getData()
+        getData()
     }
     
     private func getData() {
@@ -98,12 +98,12 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return viewModel.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return viewModel.dataArray.count
-        let section = sections[section]
+        let section = viewModel.sections[section]
         if !section.hideContent {
             return section.contentList.count + 1
         } else {
@@ -127,11 +127,11 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // section main cell title
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
-            cell.label.text = sections[indexPath.section].mainCellTitle
+            cell.label.text = viewModel.sections[indexPath.section].dataModel?.province
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
-            let model = sections[indexPath.section].contentList[indexPath.row - 1]
+            let model = viewModel.sections[indexPath.section].contentList[indexPath.row - 1]
 
             cell.model = model
             return cell
@@ -141,14 +141,13 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         if indexPath.row == 0 {
-            sections[indexPath.section].hideContent = !sections[indexPath.section].hideContent
-
-            // animasyonsuz reload eder
+            viewModel.sections[indexPath.section].hideContent = !viewModel.sections[indexPath.section].hideContent
+            
             tableView.reloadData()
 
         } else {
             let cell = tableView.cellForRow(at: indexPath) as? ExpandableCell
-            sections[indexPath.section].contentList[indexPath.row - 1].hideContent.toggle()
+            viewModel.sections[indexPath.section].contentList[indexPath.row - 1].hideContent.toggle()
 
             tableView.reloadRows(at: [indexPath], with: .none)
         }

@@ -50,7 +50,15 @@ final class MainViewModel {
                 
                 // Sectionlari doldururuz
                 self.dataArray.forEach { dataModel in
-                    let sectionItem = Section(dataModel: dataModel, mainCellTitle: "A", hideContent: true, contentList: [])
+                    
+                    var contentList = [ExpandableCellContentModel]()
+                    
+                    dataModel.universities?.forEach({ model in
+                        let contentModel = ExpandableCellContentModel(hideContent: true, universityModel: model)
+                        contentList.append(contentModel)
+                    })
+                    
+                    let sectionItem = Section(dataModel: dataModel, hideContent: true, contentList: contentList)
                     self.sections.append(sectionItem)
                 }
                

@@ -127,7 +127,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // section main cell title
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
-            cell.label.text = viewModel.sections[indexPath.section].dataModel?.province
+            cell.label.text = viewModel.sections[indexPath.section].dataModel.province
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell

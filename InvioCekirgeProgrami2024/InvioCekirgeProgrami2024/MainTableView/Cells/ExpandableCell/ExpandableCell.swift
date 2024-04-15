@@ -21,7 +21,7 @@ class ExpandableCell: UITableViewCell {
     
     var model: ExpandableCellContentModel? {
         didSet {
-            label.text = model?.title
+            label.text = model?.universityModel.name
             expendStackView.isHidden = model?.hideContent ?? false
         }
     }

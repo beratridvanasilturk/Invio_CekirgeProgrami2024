@@ -8,13 +8,13 @@
 import Foundation
 
 struct ExpandableCellContentModel {
-    let title: String
     var hideContent: Bool
+    let universityModel: UniversitiesResponseModel
 }
 
 struct Section {
-    var dataModel: DataResponseModel?
-    var mainCellTitle: String
+    var dataModel: DataResponseModel
     var hideContent: Bool
     var contentList: [ExpandableCellContentModel]
+    
 }

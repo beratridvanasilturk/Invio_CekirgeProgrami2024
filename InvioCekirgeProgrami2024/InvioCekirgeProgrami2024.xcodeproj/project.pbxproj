@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		985A1A582BCF19E500A620E4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A1A572BCF19E500A620E4 /* Array+Extensions.swift */; };
 		989717832BC977A70021E600 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989717822BC977A70021E600 /* MainViewModel.swift */; };
 		98A5F80F2BBD64F5008AE472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */; };
 		98A5F8112BBD64F5008AE472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		985A1A572BCF19E500A620E4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		989717822BC977A70021E600 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		98A5F80B2BBD64F5008AE472 /* InvioCekirgeProgrami2024.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvioCekirgeProgrami2024.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		98A5F8022BBD64F5008AE472 = {
 			isa = PBXGroup;
 			children = (
+				985A1A572BCF19E500A620E4 /* Array+Extensions.swift */,
 				98A5F80D2BBD64F5008AE472 /* InvioCekirgeProgrami2024 */,
 				98A5F80C2BBD64F5008AE472 /* Products */,
 			);
@@ -250,6 +253,7 @@
 				989717832BC977A70021E600 /* MainViewModel.swift in Sources */,
 				98A5F8292BBD806D008AE472 /* UniversitiesResponseModel.swift in Sources */,
 				98A5F82B2BBD809C008AE472 /* DataResponseModel.swift in Sources */,
+				985A1A582BCF19E500A620E4 /* Array+Extensions.swift in Sources */,
 				98A5F8132BBD64F5008AE472 /* ViewController.swift in Sources */,
 				98A5F80F2BBD64F5008AE472 /* AppDelegate.swift in Sources */,
 				98A5F8272BBD7BB8008AE472 /* MainResponseModel.swift in Sources */,

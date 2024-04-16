@@ -10,7 +10,13 @@ import UIKit
 class MainCell: UITableViewCell {
     static let cellIdentifier = String(describing: MainCell.self)
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
+    
+    var title: String? {
+        didSet {
+            label.text = title
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

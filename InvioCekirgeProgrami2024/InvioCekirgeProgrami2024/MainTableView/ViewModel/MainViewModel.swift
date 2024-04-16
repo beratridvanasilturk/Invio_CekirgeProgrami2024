@@ -9,16 +9,19 @@ import Foundation
 
 final class MainViewModel {
     
-    var dataArray = [DataResponseModel]()
-    var totalPage = 1
-    var currentPage = 1 
+    private var totalPage = 1
+    private var currentPage = 1
     
-    var sections: [Section] = []
+    private (set) var sections: [Section] = []
+    
+    func fetchData(completion: (() -> Void)? = nil, updatePage: Bool = false) {
         
-    func fetchData(pageNum: Int, completion: (() -> Void)? = nil) {
+        if updatePage {
+            currentPage += 1
+        }
         
         let baseUrlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/"
-        let urlString = baseUrlString + "page-\(pageNum).json"
+        let urlString = baseUrlString + "page-\(currentPage).json"
         
         guard let url = URL(string: urlString) else {
             print("😵😵😵 URL ERROR")
@@ -37,19 +40,20 @@ final class MainViewModel {
                 return
             }
             
+            var dataArray = [DataResponseModel]()
             let decoder = JSONDecoder()
             
             do {
                 let responseModel = try decoder.decode(MainResponseModel.self, from: data)
                 self.totalPage = responseModel.totalPage ?? 1
                 if let parsingData = responseModel.data {
-                    self.dataArray.append(contentsOf: parsingData)
+                    dataArray.append(contentsOf: parsingData)
                 }
                 
-                print("🟡🟡🟡 Cities Count = \(self.dataArray.count)")
+                print("🟡🟡🟡 Cities Count = \(dataArray.count)")
                 
                 // Sectionlari doldururuz
-                self.dataArray.forEach { dataModel in
+                dataArray.forEach { dataModel in
                     
                     var contentList = [ExpandableCellContentModel]()
                     
@@ -61,7 +65,7 @@ final class MainViewModel {
                     let sectionItem = Section(dataModel: dataModel, contentList: contentList)
                     self.sections.append(sectionItem)
                 }
-               
+                
                 completion?()
                 
             } catch(let err) {
@@ -69,5 +73,34 @@ final class MainViewModel {
             }
         }
         dataTask.resume()
+    }
+    
+    func closeExpandedCells() {
+        // Sections Close
+        for sectionIndex in 0..<sections.count {
+            sections[sectionIndex].hideContent = true
+            
+            // Expanded Cells Close
+            for contentIndex in 0..<sections[sectionIndex].contentList.count {
+                sections[sectionIndex].contentList[contentIndex].hideContent = true
+            }
+        }
+    }
+    
+    func resetContent() {
+        currentPage = 1
+        sections.removeAll()
+    }
+    
+    func sectionSelected(sectionIndex: Int) {
+        sections[sectionIndex].hideContent = !sections[sectionIndex].hideContent
+    }
+    
+    func contentSelected(sectionIndex: Int, contentIndex: Int) {
+        sections[sectionIndex].contentList[contentIndex - 1].hideContent.toggle()
+    }
+    
+    func paginationFlag(indexPath: IndexPath) -> Bool {
+        currentPage < totalPage && indexPath.row == sections.count - 1
     }
 }

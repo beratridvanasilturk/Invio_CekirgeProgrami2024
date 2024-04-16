@@ -6,21 +6,17 @@
 //
 // TODO: -
 // Favoriler Icin Realm
+// Add MARK Props DidLoad (LifeCycle) vs
 
 
 import UIKit
 
-final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
-//    private let cellIdentifier = "cellIdentifier"
-    private let viewModel: MainViewModel
-//
-    required init?(coder: NSCoder) {
-        self.viewModel = MainViewModel()
-        super.init(coder: coder)
-    }
+    private let refreshControl = UIRefreshControl()
+    private let viewModel = MainViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,39 +27,91 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         
-        getData()
+        self.refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
+        self.tableView.refreshControl = self.refreshControl
+        
+        viewModel.fetchData{
+            self.updateUI()
+        }
     }
     
-    private func getData() {
-        viewModel.fetchData(pageNum: viewModel.currentPage, completion: {
-            self.setUI()
-        })
-    }
-    
-    private func setUI() {
-        
-//        self.tableView.refreshControl = UIRefreshControl()
-//        self.tableView.refreshControl?.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
-        
+    private func updateUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
             print("✅✅✅ UI UPDATED")
         }
     }
     
     @objc private func refreshData() {
         
-        viewModel.currentPage = 1
+        viewModel.resetContent()
         
-        self.tableView.refreshControl?.beginRefreshing()
-        self.viewModel.dataArray.removeAll()
+        viewModel.fetchData{
+            self.updateUI()
+        }
+    }
+    
+    
+    @IBAction private func expandButtonTapped() {
         
-        viewModel.fetchData(pageNum: viewModel.currentPage, completion: {
+        viewModel.closeExpandedCells()
+        
+        DispatchQueue.main.async {
             self.tableView.reloadData()
-        })
+            print("🧲🧲🧲 All Cells Closed")
+        }
         
-//        self.refreshControl?.endRefreshing()
-        print("🔄🔄🔄 Refreshed")
+    }
+}
+
+// MARK: - Table View Delegates
+extension ViewController: UITableViewDelegate {
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        
+        if indexPath.row == 0 {
+            viewModel.sectionSelected(sectionIndex: indexPath.section)
+            tableView.reloadData()
+        // Content icerigi tiklandiginda
+        } else {
+            viewModel.contentSelected(sectionIndex: indexPath.section, contentIndex: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
+
+    }
+    
+    // TODO: Need Fix Pagination
+//     Pagination
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if viewModel.paginationFlag(indexPath: indexPath) {
+            viewModel.fetchData(updatePage: true)
+//            {  
+//                self.updateUI()
+//                print("🔁🔁🔁 PAGINATION SUCCEED")
+//            }
+        }
+    }
+}
+
+// MARK: TableView Data Source
+extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // section main cell title
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
+            cell.title = viewModel.sections[safe: indexPath.section]?.dataModel.province
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
+            let model = viewModel.sections[safe: indexPath.section]?.contentList[safe: indexPath.row - 1]
+            cell.model = model
+            return cell
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,7 +119,6 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.dataArray.count
         let section = viewModel.sections[section]
         if !section.hideContent {
             return section.contentList.count + 1
@@ -80,80 +127,4 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        if viewModel.currentPage < viewModel.totalPage && indexPath.row == viewModel.dataArray.count - 1 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "loading")
-//            return cell!
-//        } else {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-//            let data = viewModel.dataArray[indexPath.row]
-//            cell.textLabel?.text = data.province
-//            return cell
-//        }
-        
-        
-        // section main cell title
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
-            cell.label.text = viewModel.sections[indexPath.section].dataModel.province
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
-            let model = viewModel.sections[indexPath.section].contentList[indexPath.row - 1]
-
-            cell.model = model
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        if indexPath.row == 0 {
-            viewModel.sections[indexPath.section].hideContent = !viewModel.sections[indexPath.section].hideContent
-            
-            tableView.reloadData()
-
-        } else {
-            let cell = tableView.cellForRow(at: indexPath) as? ExpandableCell
-            viewModel.sections[indexPath.section].contentList[indexPath.row - 1].hideContent.toggle()
-
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-
-    }
-    
-    
-    // Pagination
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if viewModel.currentPage < viewModel.totalPage && indexPath.row == viewModel.dataArray.count - 1 {
-//            viewModel.currentPage = viewModel.currentPage + 1
-//
-//            viewModel.fetchData(pageNum: viewModel.currentPage, completion: {
-//                self.setUI()
-//            })
-//        }
-//    }
-    
-    @IBAction func expandButtonTapped() {
-        
-        // Sections Close
-        for sectionIndex in 0..<viewModel.sections.count {
-            viewModel.sections[sectionIndex].hideContent = true
-            
-            
-            // Expanded Cells Close
-            for contentIndex in 0..<viewModel.sections[sectionIndex].contentList.count {
-                viewModel.sections[sectionIndex].contentList[contentIndex].hideContent = true
-            }
-            
-            
-        }
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            print("🧲🧲🧲 All Cells Closed")
-        }
-        
-    }
 }

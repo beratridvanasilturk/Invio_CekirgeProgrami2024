@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -119,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="imH-Zz-X6z">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="681"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="N7G-nF-sE9">
@@ -132,14 +133,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBC-Ta-EIk">
+                                <rect key="frame" x="271" y="748" width="106" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="m6a-0S-Pfv"/>
+                                    <constraint firstAttribute="height" constant="70" id="mjh-wC-WmK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="arrow.up.forward.and.arrow.down.backward" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="expandButtonTapped" destination="PoG-1y-v3q" eventType="touchUpInside" id="lfT-gA-sbH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aVs-53-rcA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uBC-Ta-EIk" firstAttribute="bottom" secondItem="aVs-53-rcA" secondAttribute="bottom" id="LwR-dR-y34"/>
                             <constraint firstItem="imH-Zz-X6z" firstAttribute="leading" secondItem="aVs-53-rcA" secondAttribute="leading" id="gGu-7G-AdS"/>
+                            <constraint firstItem="aVs-53-rcA" firstAttribute="trailing" secondItem="uBC-Ta-EIk" secondAttribute="trailing" constant="16" id="gtG-bt-ZEa"/>
                             <constraint firstItem="aVs-53-rcA" firstAttribute="trailing" secondItem="imH-Zz-X6z" secondAttribute="trailing" id="iIk-bA-HOx"/>
                             <constraint firstItem="imH-Zz-X6z" firstAttribute="top" secondItem="aVs-53-rcA" secondAttribute="top" id="mnX-MD-1yd"/>
-                            <constraint firstItem="aVs-53-rcA" firstAttribute="bottom" secondItem="imH-Zz-X6z" secondAttribute="bottom" id="uFC-dI-gDN"/>
+                            <constraint firstItem="uBC-Ta-EIk" firstAttribute="bottom" secondItem="aVs-53-rcA" secondAttribute="bottom" id="nT7-gF-nvT"/>
+                            <constraint firstItem="aVs-53-rcA" firstAttribute="bottom" secondItem="imH-Zz-X6z" secondAttribute="bottom" constant="78" id="uFC-dI-gDN"/>
                         </constraints>
                     </view>
                     <connections>
@@ -148,10 +166,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ji1-3H-Ibs" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2216" y="1"/>
+            <point key="canvasLocation" x="2212.9770992366412" y="0.70422535211267612"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.forward.and.arrow.down.backward" catalog="system" width="128" height="117"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="list.clipboard" catalog="system" width="98" height="128"/>

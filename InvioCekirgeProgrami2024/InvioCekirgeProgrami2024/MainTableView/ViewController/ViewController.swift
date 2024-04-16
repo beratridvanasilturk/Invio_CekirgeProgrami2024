@@ -16,7 +16,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 //    private let cellIdentifier = "cellIdentifier"
     private let viewModel: MainViewModel
-//    
+//
     required init?(coder: NSCoder) {
         self.viewModel = MainViewModel()
         super.init(coder: coder)
@@ -128,10 +128,32 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        if viewModel.currentPage < viewModel.totalPage && indexPath.row == viewModel.dataArray.count - 1 {
 //            viewModel.currentPage = viewModel.currentPage + 1
-//            
+//
 //            viewModel.fetchData(pageNum: viewModel.currentPage, completion: {
 //                self.setUI()
 //            })
 //        }
 //    }
+    
+    @IBAction func expandButtonTapped() {
+        
+        // Sections Close
+        for sectionIndex in 0..<viewModel.sections.count {
+            viewModel.sections[sectionIndex].hideContent = true
+            
+            
+            // Expanded Cells Close
+            for contentIndex in 0..<viewModel.sections[sectionIndex].contentList.count {
+                viewModel.sections[sectionIndex].contentList[contentIndex].hideContent = true
+            }
+            
+            
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            print("🧲🧲🧲 All Cells Closed")
+        }
+        
+    }
 }

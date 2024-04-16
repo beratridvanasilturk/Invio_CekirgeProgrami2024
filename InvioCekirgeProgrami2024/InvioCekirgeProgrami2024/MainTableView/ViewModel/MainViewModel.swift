@@ -12,7 +12,7 @@ final class MainViewModel {
     private var totalPage = 1
     private var currentPage = 1
     
-    private (set) var sections: [Section] = []
+    private (set) var sections: [SectionModel] = []
     
     func fetchData(completion: (() -> Void)? = nil, updatePage: Bool = false) {
         
@@ -62,7 +62,7 @@ final class MainViewModel {
                         contentList.append(contentModel)
                     })
                     
-                    let sectionItem = Section(dataModel: dataModel, contentList: contentList)
+                    let sectionItem = SectionModel(dataModel: dataModel, contentList: contentList)
                     self.sections.append(sectionItem)
                 }
                 

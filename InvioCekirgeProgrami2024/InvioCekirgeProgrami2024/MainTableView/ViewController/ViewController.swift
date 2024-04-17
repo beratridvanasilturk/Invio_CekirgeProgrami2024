@@ -10,7 +10,6 @@
 // Uygulama renklerini Invio renklerine gore ayarla
 
 
-
 import UIKit
 
 final class ViewController: UIViewController {
@@ -86,7 +85,6 @@ extension ViewController: UITableViewDelegate {
 
     }
     
-    // TODO: Need Fix Pagination
 //     Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if viewModel.paginationFlag(indexPath: indexPath) {

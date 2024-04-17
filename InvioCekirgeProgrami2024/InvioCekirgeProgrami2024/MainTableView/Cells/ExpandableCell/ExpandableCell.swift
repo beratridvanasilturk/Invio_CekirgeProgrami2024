@@ -57,7 +57,12 @@ class ExpandableCell: UITableViewCell {
             // TODO: Phone Call Need Add
         }
     }
-
+    
+    @IBAction func favButtonTapped() {
+        if let universityModel = model?.universityModel {
+            PersistentManager.shared.addFavorites(item: universityModel)
+        }
+    }
 }
 
     

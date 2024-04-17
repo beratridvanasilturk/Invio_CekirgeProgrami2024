@@ -50,8 +50,6 @@ final class MainViewModel {
                     dataArray.append(contentsOf: parsingData)
                 }
                 
-                print("🟡🟡🟡 Cities Count = \(dataArray.count)")
-                
                 // Sectionlari doldururuz
                 dataArray.forEach { dataModel in
                     
@@ -65,6 +63,8 @@ final class MainViewModel {
                     let sectionItem = SectionModel(dataModel: dataModel, contentList: contentList)
                     self.sections.append(sectionItem)
                 }
+                
+                print("🟡🟡🟡 Cities Count = \(self.sections.count)")
                 
                 completion?()
                 

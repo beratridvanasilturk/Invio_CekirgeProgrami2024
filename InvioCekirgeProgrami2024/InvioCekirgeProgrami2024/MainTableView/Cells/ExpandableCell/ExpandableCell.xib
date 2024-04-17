@@ -29,11 +29,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVr-FE-rdL">
+                                        <rect key="frame" x="250.33333333333334" y="8" width="50.666666666666657" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="favButtonTapped" destination="Q2g-YY-F9w" eventType="touchUpInside" id="J9b-5A-RH2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="0.74612032312925169" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="gVr-FE-rdL" firstAttribute="top" secondItem="sMg-eh-uew" secondAttribute="top" constant="8" id="3fL-tZ-Vqs"/>
                                     <constraint firstAttribute="height" constant="50" id="JA7-TW-5dz"/>
+                                    <constraint firstAttribute="trailing" secondItem="gVr-FE-rdL" secondAttribute="trailing" constant="19" id="Ozw-ud-ukg"/>
                                     <constraint firstItem="m6y-Ub-7qd" firstAttribute="top" secondItem="sMg-eh-uew" secondAttribute="top" constant="15" id="l0Y-6Y-Oz4"/>
                                     <constraint firstAttribute="bottom" secondItem="m6y-Ub-7qd" secondAttribute="bottom" constant="15" id="s11-yf-LDp"/>
                                     <constraint firstAttribute="trailing" secondItem="m6y-Ub-7qd" secondAttribute="trailing" constant="8" id="xkI-KF-xoA"/>
@@ -117,4 +127,7 @@
             <point key="canvasLocation" x="149.61832061068702" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+    </resources>
 </document>

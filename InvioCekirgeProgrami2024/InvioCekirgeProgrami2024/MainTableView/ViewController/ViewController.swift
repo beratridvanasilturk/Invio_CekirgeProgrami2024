@@ -76,11 +76,11 @@ extension ViewController: UITableViewDelegate {
         print(indexPath.row)
         
         if indexPath.row == 0 {
-            viewModel.sectionSelected(sectionIndex: indexPath.section)
+            viewModel.sectionSelected(indexPath: indexPath)
             tableView.reloadData()
         // Content icerigi tiklandiginda
         } else {
-            viewModel.contentSelected(sectionIndex: indexPath.section, contentIndex: indexPath.row)
+            viewModel.contentSelected(indexPath: indexPath)
             tableView.reloadRows(at: [indexPath], with: .none)
         }
 
@@ -90,11 +90,10 @@ extension ViewController: UITableViewDelegate {
 //     Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if viewModel.paginationFlag(indexPath: indexPath) {
-            viewModel.fetchData(updatePage: true)
-//            {  
-//                self.updateUI()
-//                print("🔁🔁🔁 PAGINATION SUCCEED")
-//            }
+            viewModel.fetchData(updatePage: true) {
+                self.updateUI()
+                print("🔁🔁🔁 PAGINATION SUCCEED")
+            }
         }
     }
 }
@@ -128,5 +127,4 @@ extension ViewController: UITableViewDataSource {
             return 1
         }
     }
-    
 }

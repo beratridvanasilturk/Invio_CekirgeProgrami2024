@@ -14,7 +14,7 @@ final class MainViewModel {
     
     private (set) var sections: [SectionModel] = []
     
-    func fetchData(completion: (() -> Void)? = nil, updatePage: Bool = false) {
+    func fetchData(updatePage: Bool = false, completion: (() -> Void)? = nil) {
         
         if updatePage {
             currentPage += 1
@@ -92,15 +92,15 @@ final class MainViewModel {
         sections.removeAll()
     }
     
-    func sectionSelected(sectionIndex: Int) {
-        sections[sectionIndex].hideContent = !sections[sectionIndex].hideContent
+    func sectionSelected(indexPath: IndexPath) {
+        sections[indexPath.section].hideContent = !sections[indexPath.section].hideContent
     }
     
-    func contentSelected(sectionIndex: Int, contentIndex: Int) {
-        sections[sectionIndex].contentList[contentIndex - 1].hideContent.toggle()
+    func contentSelected(indexPath: IndexPath) {
+        sections[indexPath.section].contentList[indexPath.row - 1].hideContent.toggle()
     }
     
     func paginationFlag(indexPath: IndexPath) -> Bool {
-        currentPage < totalPage && indexPath.row == sections.count - 1
+        currentPage < totalPage && indexPath.section == sections.count - 1
     }
 }

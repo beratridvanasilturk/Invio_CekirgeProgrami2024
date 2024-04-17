@@ -60,7 +60,9 @@ class ExpandableCell: UITableViewCell {
     
     @IBAction func favButtonTapped() {
         if let universityModel = model?.universityModel {
-            PersistentManager.shared.addFavorites(item: universityModel)
+            PersistentManager.shared.checkFavorites(item: universityModel)
+            print("♥️♥️♥️ Fav Buttonƒ Tapped")
+            
         }
     }
 }

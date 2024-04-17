@@ -34,6 +34,12 @@ final class ViewController: UIViewController {
         viewModel.fetchData{
             self.updateUI()
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
+            self.present(vc, animated: true)
+        }
+        
     }
     
     private func updateUI() {
@@ -62,14 +68,11 @@ final class ViewController: UIViewController {
             self.tableView.reloadData()
             print("🧲🧲🧲 All Cells Closed")
         }
-        
     }
 }
 
 // MARK: - Table View Delegates
 extension ViewController: UITableViewDelegate {
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
@@ -82,7 +85,6 @@ extension ViewController: UITableViewDelegate {
             viewModel.contentSelected(indexPath: indexPath)
             tableView.reloadRows(at: [indexPath], with: .none)
         }
-
     }
     
 //     Pagination

@@ -168,6 +168,40 @@
             </objects>
             <point key="canvasLocation" x="2212.9770992366412" y="0.70422535211267612"/>
         </scene>
+        <!--Fav List View Controller-->
+        <scene sceneID="4dY-6R-wQK">
+            <objects>
+                <viewController storyboardIdentifier="FavListViewController" id="Idl-vR-D1K" customClass="FavListViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G5a-GF-I0F">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KzX-QI-cJR">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Idl-vR-D1K" id="3Js-o6-0mW"/>
+                                    <outlet property="delegate" destination="Idl-vR-D1K" id="G83-CJ-fKd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ksv-Vg-vNa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ksv-Vg-vNa" firstAttribute="bottom" secondItem="KzX-QI-cJR" secondAttribute="bottom" id="QDs-64-5j9"/>
+                            <constraint firstItem="KzX-QI-cJR" firstAttribute="top" secondItem="ksv-Vg-vNa" secondAttribute="top" id="QhB-u8-Bi6"/>
+                            <constraint firstItem="KzX-QI-cJR" firstAttribute="leading" secondItem="ksv-Vg-vNa" secondAttribute="leading" id="ecW-5P-qKh"/>
+                            <constraint firstItem="ksv-Vg-vNa" firstAttribute="trailing" secondItem="KzX-QI-cJR" secondAttribute="trailing" id="lx1-gg-0fa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="KzX-QI-cJR" id="pC5-lM-voJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fER-2Y-x3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3131" y="1"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.up.forward.and.arrow.down.backward" catalog="system" width="128" height="117"/>

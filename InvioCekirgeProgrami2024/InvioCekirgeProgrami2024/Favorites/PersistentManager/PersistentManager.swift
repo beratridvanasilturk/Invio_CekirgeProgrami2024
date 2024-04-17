@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 // MARK: - Persistent Manager
+
 class FavoriModel: Object {
     @Persisted var name: String?
     @Persisted var phone: String?
@@ -21,11 +22,12 @@ class FavoriModel: Object {
 
 // MARK: - Persistent Model
 class PersistentManager {
+    
     static let shared = PersistentManager()
     
     private let realm = try! Realm()
     
-    func addFavorites(item: UniversitiesResponseModel) {
+    private func addFavorites(item: UniversitiesResponseModel) {
         
         let favoriModel = FavoriModel()
         
@@ -43,12 +45,19 @@ class PersistentManager {
         }
     }
     
-    func getFavorites() -> [UniversitiesResponseModel] {
+    private func removeFavorites(item: FavoriModel) {
+        
+        try! realm.write {
+            realm.delete(item)
+        }
+    }
+    
+    func getFavorites() -> [ExpandableCellContentModel] {
         let favorites = realm.objects(FavoriModel.self)
         
         let universities = favorites.map { favoriModel in
             
-            UniversitiesResponseModel(
+            let universityModel = UniversitiesResponseModel(
                 name: favoriModel.name,
                 phone: favoriModel.phone,
                 fax: favoriModel.fax,
@@ -57,7 +66,21 @@ class PersistentManager {
                 adress: favoriModel.adress,
                 rector: favoriModel.rector
             )
+            
+            return ExpandableCellContentModel(universityModel: universityModel)
         }
-            return Array(universities)
+        return Array(universities)
+    }
+    
+    func checkFavorites(item: UniversitiesResponseModel) {
+        
+        let favorites = realm.objects(FavoriModel.self)
+        
+        if let targetItem = favorites.first(where: { $0.name == item.name }) {
+            removeFavorites(item: targetItem)
+        } else {
+            addFavorites(item: item)
+        }
     }
 }
+

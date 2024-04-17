@@ -7,6 +7,8 @@
 // TODO: -
 // Favoriler Icin Realm
 // Add MARK Props DidLoad (LifeCycle) vs
+// Uygulama renklerini Invio renklerine gore ayarla
+
 
 
 import UIKit

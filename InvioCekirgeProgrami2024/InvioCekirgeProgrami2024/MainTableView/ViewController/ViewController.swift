@@ -5,10 +5,7 @@
 //  Created by Berat Ridvan Asilturk on 3.04.2024.
 //
 // TODO: -
-// Favoriler Icin Realm
 // Add MARK Props DidLoad (LifeCycle) vs
-// Uygulama renklerini Invio renklerine gore ayarla
-
 
 import UIKit
 

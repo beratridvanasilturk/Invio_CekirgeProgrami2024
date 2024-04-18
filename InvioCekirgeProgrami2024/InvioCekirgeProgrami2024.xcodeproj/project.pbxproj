@@ -24,6 +24,7 @@
 		98AFAF212BD071C7008A3E0A /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AFAF202BD071C7008A3E0A /* PersistentManager.swift */; };
 		98AFAF242BD07804008A3E0A /* FavListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AFAF222BD07804008A3E0A /* FavListViewController.swift */; };
 		98AFAF272BD08482008A3E0A /* FavListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AFAF262BD08482008A3E0A /* FavListViewModel.swift */; };
+		98AFAF2C2BD0B684008A3E0A /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AFAF2B2BD0B684008A3E0A /* TodoList.swift */; };
 		98B7C25D2BC9B38F00752196 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B7C25C2BC9B38F00752196 /* MainCell.xib */; };
 		98B7C25F2BC9B3A900752196 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C25E2BC9B3A900752196 /* MainCell.swift */; };
 		98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B7C2612BC9B3D400752196 /* ExpandableCell.xib */; };
@@ -49,6 +50,7 @@
 		98AFAF202BD071C7008A3E0A /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		98AFAF222BD07804008A3E0A /* FavListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListViewController.swift; sourceTree = "<group>"; };
 		98AFAF262BD08482008A3E0A /* FavListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListViewModel.swift; sourceTree = "<group>"; };
+		98AFAF2B2BD0B684008A3E0A /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		98B7C25C2BC9B38F00752196 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		98B7C25E2BC9B3A900752196 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		98B7C2612BC9B3D400752196 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				98A5F8172BBD64F6008AE472 /* Assets.xcassets */,
 				98A5F8192BBD64F6008AE472 /* LaunchScreen.storyboard */,
 				98A5F81C2BBD64F6008AE472 /* Info.plist */,
+				98AFAF282BD0B643008A3E0A /* TODO */,
 			);
 			path = InvioCekirgeProgrami2024;
 			sourceTree = "<group>";
@@ -178,6 +181,14 @@
 				98AFAF202BD071C7008A3E0A /* PersistentManager.swift */,
 			);
 			path = PersistentManager;
+			sourceTree = "<group>";
+		};
+		98AFAF282BD0B643008A3E0A /* TODO */ = {
+			isa = PBXGroup;
+			children = (
+				98AFAF2B2BD0B684008A3E0A /* TodoList.swift */,
+			);
+			path = TODO;
 			sourceTree = "<group>";
 		};
 		98B7C25A2BC9B36800752196 /* Cells */ = {
@@ -300,6 +311,7 @@
 				98A5F80F2BBD64F5008AE472 /* AppDelegate.swift in Sources */,
 				98A5F8272BBD7BB8008AE472 /* MainResponseModel.swift in Sources */,
 				98B7C2662BC9B41A00752196 /* SectionModel.swift in Sources */,
+				98AFAF2C2BD0B684008A3E0A /* TodoList.swift in Sources */,
 				98B7C25F2BC9B3A900752196 /* MainCell.swift in Sources */,
 				98B7C2642BC9B3ED00752196 /* ExpandableCell.swift in Sources */,
 				98A5F8112BBD64F5008AE472 /* SceneDelegate.swift in Sources */,

@@ -5,11 +5,11 @@
 //  Created by Berat Ridvan Asilturk on 12.04.2024.
 //
 
-// TODO: Phone Call Need Add for Phone Tapped Func
-
 import UIKit
 
-class ExpandableCell: UITableViewCell {
+final class ExpandableCell: UITableViewCell {
+    
+    private let viewModel = ExpandableModel()
     
     static let cellIdentifier = String(describing: ExpandableCell.self)
     
@@ -38,78 +38,78 @@ class ExpandableCell: UITableViewCell {
             favoriteButton.setImage(image, for: .normal)
         }
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         firstSetup()
     }
-
-    func firstSetup() {
+    
+    private func firstSetup() {
         phoneLabel.isUserInteractionEnabled = true
+        websiteLabel.isUserInteractionEnabled = true
+        
         phoneLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(phoneButtonTapped)))
+        
+        websiteLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(websiteButtonTapped)))
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
     }
     
-    private func formatPhoneNumber(_ input: String) -> String? {
-        
-        let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        
-        guard digits.count >= 10 else {
-            print("Invalid phone number")
-            return nil
+    private func findParentViewController() -> UIViewController? {
+        // Kendini bir sonraki akran nesneye döndürerek ve sınıfını kontrol ederek gezinme
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder?.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
         }
-        let countryCode = "+\(digits.prefix(1))"
-        
-        let localNumber = digits.dropFirst()
-        
-        let formattedPhoneNumber = "\(countryCode)\(localNumber)"
-        
-        return formattedPhoneNumber
+        return nil
     }
     
-    // Backendden gelen dataya gore duzenlemek icin tel no basindaki + isaretini kaldirir
+    // Backendden gelen dataya gore tel no'yu yeniden duzenler, aranabilecek seviyeye getirir
     private func makePhoneCall(to phoneNumber: String) {
+        var formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
         
-        let formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
+        // Fazlalık olan haneleri siler
+        if formattedNumber.count > 11 {
+            formattedNumber = String(formattedNumber.prefix(11))
+        }
         
         if let phoneURL = URL(string: "tel://\(formattedNumber)") {
-            // Uygulamanın URL'yi açıp açamayacağını kontrol edin
             if UIApplication.shared.canOpenURL(phoneURL) {
-                // Telefon görüşmesini başlatmak için URL'yi açın
                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                 print("☎️☎️☎️ Successful Phone Call Forwarding")
-                
-            } else {
-                print("Verilen numara ile telefon görüşmesi başlatılamıyor.")
             }
-        } else {
-            print("Geçersiz telefon numarası.")
         }
     }
     
-    @objc func phoneButtonTapped() {
-        
-        if let phone = model?.universityModel.phone, !phone.isEmpty {
-            
-            if let phoneNumber = formatPhoneNumber(phone) {
+    @objc private func phoneButtonTapped() {
+        if let phone = model?.universityModel.phone{
+            if let phoneNumber = viewModel.formatPhoneNumber(phone) {
                 makePhoneCall(to: phoneNumber)
             }
         }
     }
     
-    @IBAction func favButtonTapped() {
+    @objc private func websiteButtonTapped() {
+        
+        if let website = model?.universityModel.website{
+            
+            if let viewController = self.findParentViewController() {
+                viewModel.openURLInSafariSheet(urlString: website, from: viewController)
+            }
+        }
+    }
+    
+    @IBAction private func favButtonTapped() {
         if let universityModel = model?.universityModel {
             PersistentManager.shared.checkFavorites(item: universityModel)
             print("♥️♥️♥️ Fav Button Tapped")
         }
     }
 }
-
-    
-
-

@@ -55,10 +55,50 @@ class ExpandableCell: UITableViewCell {
         
     }
     
+    private func formatPhoneNumber(_ input: String) -> String? {
+        
+        let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        guard digits.count >= 10 else {
+            print("Invalid phone number")
+            return nil
+        }
+        let countryCode = "+\(digits.prefix(1))"
+        
+        let localNumber = digits.dropFirst()
+        
+        let formattedPhoneNumber = "\(countryCode)\(localNumber)"
+        
+        return formattedPhoneNumber
+    }
+    
+    // Backendden gelen dataya gore duzenlemek icin tel no basindaki + isaretini kaldirir
+    private func makePhoneCall(to phoneNumber: String) {
+        
+        let formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
+        
+        if let phoneURL = URL(string: "tel://\(formattedNumber)") {
+            // Uygulamanın URL'yi açıp açamayacağını kontrol edin
+            if UIApplication.shared.canOpenURL(phoneURL) {
+                // Telefon görüşmesini başlatmak için URL'yi açın
+                UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                print("☎️☎️☎️ Successful Phone Call Forwarding")
+                
+            } else {
+                print("Verilen numara ile telefon görüşmesi başlatılamıyor.")
+            }
+        } else {
+            print("Geçersiz telefon numarası.")
+        }
+    }
+    
     @objc func phoneButtonTapped() {
+        
         if let phone = model?.universityModel.phone, !phone.isEmpty {
-            print("Phone Tapped 😢😢😢😢😢😢😢😢")
-            // TODO: Phone Call Need Add
+            
+            if let phoneNumber = formatPhoneNumber(phone) {
+                makePhoneCall(to: phoneNumber)
+            }
         }
     }
     

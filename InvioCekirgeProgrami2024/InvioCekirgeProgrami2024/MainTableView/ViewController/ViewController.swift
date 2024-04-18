@@ -22,6 +22,12 @@ final class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        viewModel.checkInternetConnection { isConnected in
+            if !isConnected {
+                self.viewModel.showAlertForNoInternetConnection(in: self)
+            }
+        }
+        
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         
@@ -32,10 +38,10 @@ final class ViewController: UIViewController {
             self.updateUI()
         }
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
-//            self.present(vc, animated: true)
-//        }
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        //            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
+        //            self.present(vc, animated: true)
+        //        }
         
     }
     
@@ -90,7 +96,7 @@ extension ViewController: UITableViewDelegate {
         }
     }
     
-//     Pagination
+    //     Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if viewModel.paginationFlag(indexPath: indexPath) {
             viewModel.fetchData(updatePage: true) {

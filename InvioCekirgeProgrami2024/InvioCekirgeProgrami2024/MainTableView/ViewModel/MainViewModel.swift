@@ -5,13 +5,15 @@
 //  Created by Berat Ridvan Asilturk on 12.04.2024.
 //
 
-import Foundation
+import UIKit
+import Network
 
 final class MainViewModel {
     
     private var totalPage = 1
     private var currentPage = 1
     
+    let monitor = NWPathMonitor()
     private (set) var sections: [SectionModel] = []
     
     func fetchData(updatePage: Bool = false, completion: (() -> Void)? = nil) {
@@ -102,5 +104,23 @@ final class MainViewModel {
     
     func paginationFlag(indexPath: IndexPath) -> Bool {
         currentPage < totalPage && indexPath.section == sections.count - 1
+    }
+    
+    func checkInternetConnection(completion: @escaping (Bool) -> Void) {
+        // Ağ durumunu izlemek için NWPathMonitor kullanir
+        monitor.pathUpdateHandler = { path in
+            DispatchQueue.main.async {
+                completion(path.status == .unsatisfied ? false : true)
+            }
+        }
+        monitor.start(queue: DispatchQueue.global(qos: .background))
+    }
+    
+    func showAlertForNoInternetConnection(in viewController: UIViewController) {
+        let alert = UIAlertController(title: "İnternet Bağlantısı Yok !", message: "Lütfen Invio Çekirge Uygulamasına devam edebilmek için internet bağlantınızı kontrol edin.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+        
+        viewController.present(alert, animated: true, completion: nil)
     }
 }

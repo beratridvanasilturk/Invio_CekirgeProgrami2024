@@ -73,8 +73,15 @@ final class ExpandableCell: UITableViewCell {
     
     // Backendden gelen dataya gore tel no'yu yeniden duzenler, aranabilecek seviyeye getirir
     private func makePhoneCall(to phoneNumber: String) {
+        
         var formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
         
+        // Telefon numarası başında 0 rakamı yoksa, başına 0 ekle
+        // Trabzon Avrasya Universitesi Basinda Sifir Eksik Gelen Telefon String'i icin kod duzenlemesi
+          if !formattedNumber.hasPrefix("0") {
+              formattedNumber = "0" + formattedNumber
+          }
+          
         // Fazlalık olan haneleri siler
         if formattedNumber.count > 11 {
             formattedNumber = String(formattedNumber.prefix(11))

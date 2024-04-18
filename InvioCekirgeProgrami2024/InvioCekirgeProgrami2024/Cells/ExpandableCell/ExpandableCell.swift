@@ -19,6 +19,7 @@ class ExpandableCell: UITableViewCell {
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var rectorLabel: UILabel!
     @IBOutlet weak var expendStackView: UIStackView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     @IBOutlet weak var label: UILabel!
     
@@ -30,7 +31,11 @@ class ExpandableCell: UITableViewCell {
             faxLabel?.text = "Fax: " + (model?.universityModel.fax  ?? "Bulunamadı")
             websiteLabel?.text = "Website: " + (model?.universityModel.website ?? "Bulunamadı")
             adressLabel?.text = "Adres: " + (model?.universityModel.adress ?? "Bulunamadı")
-            rectorLabel?.text = "Rektör: " + (model?.universityModel.rector ?? "Bulunamadı")   
+            rectorLabel?.text = "Rektör: " + (model?.universityModel.rector ?? "Bulunamadı")
+            
+            let image = PersistentManager.shared.isFavorited(item: model?.universityModel) ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+            
+            favoriteButton.setImage(image, for: .normal)
         }
     }
 
@@ -41,7 +46,6 @@ class ExpandableCell: UITableViewCell {
     }
 
     func firstSetup() {
-//        expendStackView.isHidden = true
         phoneLabel.isUserInteractionEnabled = true
         phoneLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(phoneButtonTapped)))
     }
@@ -61,8 +65,7 @@ class ExpandableCell: UITableViewCell {
     @IBAction func favButtonTapped() {
         if let universityModel = model?.universityModel {
             PersistentManager.shared.checkFavorites(item: universityModel)
-            print("♥️♥️♥️ Fav Buttonƒ Tapped")
-            
+            print("♥️♥️♥️ Fav Button Tapped")
         }
     }
 }

@@ -118,6 +118,7 @@
             <connections>
                 <outlet property="adressLabel" destination="RTn-tb-ien" id="Sad-9s-eIT"/>
                 <outlet property="expendStackView" destination="B7j-wd-yjA" id="uaT-6y-prO"/>
+                <outlet property="favoriteButton" destination="gVr-FE-rdL" id="gww-Fe-Ugz"/>
                 <outlet property="faxLabel" destination="Yil-hy-vzP" id="y2b-qH-zRy"/>
                 <outlet property="label" destination="m6y-Ub-7qd" id="T7C-MW-xzM"/>
                 <outlet property="phoneLabel" destination="cv6-yg-bKI" id="Kvk-hl-vm4"/>

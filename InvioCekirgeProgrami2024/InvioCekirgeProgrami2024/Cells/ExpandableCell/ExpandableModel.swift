@@ -48,7 +48,9 @@ final class ExpandableModel {
         
         if let url = URL(string: secureURLString) {
             let safariViewController = SFSafariViewController(url: url)
-            // `viewController` üzerinde `safariViewController`'ı modal olarak sunar
+            
+            safariViewController.modalPresentationStyle = .pageSheet
+            
             viewController.present(safariViewController, animated: true, completion: nil)
         }
     }

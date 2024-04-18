@@ -5,6 +5,8 @@
 //  Created by Berat Ridvan Asilturk on 18.04.2024.
 //
 
+// TODO: - Need Fix UI Update Delegate Issue When Tapped UnFav
+
 import UIKit
 
 class FavListViewController: UIViewController {
@@ -18,7 +20,13 @@ class FavListViewController: UIViewController {
         
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.reloadData()
-
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        PersistentManager.shared.delegate = self
     }
 }
 
@@ -39,5 +47,16 @@ extension FavListViewController: UITableViewDelegate, UITableViewDataSource {
         print(indexPath.row)
         viewModel.favList[indexPath.row].hideContent = !viewModel.favList[indexPath.row].hideContent
         tableView.reloadRows(at: [indexPath], with: .none)
+    }
+}
+
+extension FavListViewController: PersistentManagerDelegate {
+    func favListUpdated() {
+        
+        viewModel.updateModel()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

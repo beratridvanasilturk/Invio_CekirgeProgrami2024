@@ -7,6 +7,10 @@
 
 import Foundation
 
-class FavListViewModel {
+final class FavListViewModel {
     var favList = PersistentManager.shared.getFavorites()
+    
+    func updateModel() {
+        favList = PersistentManager.shared.getFavorites()
+    }
 }

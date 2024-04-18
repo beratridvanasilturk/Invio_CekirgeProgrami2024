@@ -92,7 +92,6 @@
 			children = (
 				9866FE092BC32FB600C9C478 /* ViewController */,
 				9866FE082BC32FAF00C9C478 /* ViewModel */,
-				98AFAF1F2BD0719E008A3E0A /* PersistentManager */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -161,6 +160,7 @@
 				98B7C25A2BC9B36800752196 /* Cells */,
 				9866FE032BC32F4C00C9C478 /* MainTableView */,
 				9866FE042BC32F5900C9C478 /* Favorites */,
+				98AFAF1F2BD0719E008A3E0A /* PersistentManager */,
 				985A1A5D2BCF1FBB00A620E4 /* Extensions */,
 				98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */,
 				98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */,

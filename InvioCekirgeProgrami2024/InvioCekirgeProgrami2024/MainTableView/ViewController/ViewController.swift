@@ -35,11 +35,17 @@ final class ViewController: UIViewController {
             self.updateUI()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
-            self.present(vc, animated: true)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
+//            self.present(vc, animated: true)
+//        }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        PersistentManager.shared.delegate = self
     }
     
     private func updateUI() {
@@ -125,6 +131,15 @@ extension ViewController: UITableViewDataSource {
             return section.contentList.count + 1
         } else {
             return 1
+        }
+    }
+}
+
+
+extension ViewController: PersistentManagerDelegate {
+    func favListUpdated() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }

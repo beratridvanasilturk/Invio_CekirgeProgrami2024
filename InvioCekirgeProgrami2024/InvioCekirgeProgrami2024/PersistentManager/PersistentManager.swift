@@ -20,12 +20,16 @@ class FavoriModel: Object {
     @Persisted var rector: String?
 }
 
+protocol PersistentManagerDelegate: AnyObject {
+    func favListUpdated()
+}
+
 // MARK: - Persistent Model
 class PersistentManager {
     
     static let shared = PersistentManager()
-    
     private let realm = try! Realm()
+    weak var delegate: PersistentManagerDelegate?
     
     private func addFavorites(item: UniversitiesResponseModel) {
         
@@ -81,6 +85,16 @@ class PersistentManager {
         } else {
             addFavorites(item: item)
         }
+        delegate?.favListUpdated()
+    }
+    
+    func isFavorited(item: UniversitiesResponseModel?) -> Bool {
+        
+        guard let item else { return false }
+        
+        let favorites = realm.objects(FavoriModel.self)
+        
+        return favorites.contains { $0.name == item.name }
+        
     }
 }
-

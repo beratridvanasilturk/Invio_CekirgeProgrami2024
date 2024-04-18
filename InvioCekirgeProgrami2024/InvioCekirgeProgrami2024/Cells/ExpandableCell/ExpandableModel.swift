@@ -54,10 +54,17 @@ final class ExpandableModel {
     }
     
     private func checkUrlForHttps(_ urlString: String) -> String {
-        if urlString.hasPrefix("https://") {
-            return urlString
+        // Hakkari universitesinde backend'den gelen tek string icerisindeki 2 farkli url icin kod duzenlemesi
+        let parts = urlString.split(separator: " ", maxSplits: 1)
+        
+        // ilk url string'i kabul eder
+        let trimmedUrlString = String(parts[0])
+        
+        // "Https:" varligini kontrol eder
+        if trimmedUrlString.hasPrefix("https://") {
+            return trimmedUrlString
         } else {
-            return "https://\(urlString)"
+            return "https://\(trimmedUrlString)"
         }
     }
 }

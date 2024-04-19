@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		98236F8A2BD2A5C700DE138F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98236F892BD2A5C700DE138F /* SplashViewController.swift */; };
+		98236F8D2BD2B2D300DE138F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 98236F8C2BD2B2D300DE138F /* Lottie */; };
 		985A1A582BCF19E500A620E4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A1A572BCF19E500A620E4 /* Array+Extensions.swift */; };
 		985A1A5C2BCF1F5F00A620E4 /* ExpandableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A1A5B2BCF1F5F00A620E4 /* ExpandableModel.swift */; };
 		989717832BC977A70021E600 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989717822BC977A70021E600 /* MainViewModel.swift */; };
@@ -16,7 +17,6 @@
 		98A5F8132BBD64F5008AE472 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8122BBD64F5008AE472 /* MainViewController.swift */; };
 		98A5F8162BBD64F5008AE472 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98A5F8142BBD64F5008AE472 /* Main.storyboard */; };
 		98A5F8182BBD64F6008AE472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A5F8172BBD64F6008AE472 /* Assets.xcassets */; };
-		98A5F81B2BBD64F6008AE472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98A5F8192BBD64F6008AE472 /* LaunchScreen.storyboard */; };
 		98A5F8272BBD7BB8008AE472 /* MainResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8262BBD7BB8008AE472 /* MainResponseModel.swift */; };
 		98A5F8292BBD806D008AE472 /* UniversitiesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8282BBD806D008AE472 /* UniversitiesResponseModel.swift */; };
 		98A5F82B2BBD809C008AE472 /* DataResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F82A2BBD809C008AE472 /* DataResponseModel.swift */; };
@@ -31,6 +31,7 @@
 		98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B7C2612BC9B3D400752196 /* ExpandableCell.xib */; };
 		98B7C2642BC9B3ED00752196 /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */; };
 		98B7C2662BC9B41A00752196 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2652BC9B41A00752196 /* SectionModel.swift */; };
+		98C2A97D2BD2BFE9008E638B /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 98C2A97C2BD2BFE9008E638B /* confetti.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +45,6 @@
 		98A5F8122BBD64F5008AE472 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		98A5F8152BBD64F5008AE472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98A5F8172BBD64F6008AE472 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		98A5F81A2BBD64F6008AE472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98A5F81C2BBD64F6008AE472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98A5F8262BBD7BB8008AE472 /* MainResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponseModel.swift; sourceTree = "<group>"; };
 		98A5F8282BBD806D008AE472 /* UniversitiesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitiesResponseModel.swift; sourceTree = "<group>"; };
@@ -58,6 +58,7 @@
 		98B7C2612BC9B3D400752196 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
 		98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		98B7C2652BC9B41A00752196 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		98C2A97C2BD2BFE9008E638B /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 			files = (
 				98AFAF1E2BD02AAA008A3E0A /* RealmSwift in Frameworks */,
 				98AFAF1C2BD02AAA008A3E0A /* Realm in Frameworks */,
+				98236F8D2BD2B2D300DE138F /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				98236F892BD2A5C700DE138F /* SplashViewController.swift */,
+				98C2A97C2BD2BFE9008E638B /* confetti.json */,
 			);
 			path = SplashController;
 			sourceTree = "<group>";
@@ -179,7 +182,6 @@
 				98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */,
 				98A5F8142BBD64F5008AE472 /* Main.storyboard */,
 				98A5F8172BBD64F6008AE472 /* Assets.xcassets */,
-				98A5F8192BBD64F6008AE472 /* LaunchScreen.storyboard */,
 				98A5F81C2BBD64F6008AE472 /* Info.plist */,
 				98AFAF282BD0B643008A3E0A /* TODO */,
 			);
@@ -250,6 +252,7 @@
 			packageProductDependencies = (
 				98AFAF1B2BD02AAA008A3E0A /* Realm */,
 				98AFAF1D2BD02AAA008A3E0A /* RealmSwift */,
+				98236F8C2BD2B2D300DE138F /* Lottie */,
 			);
 			productName = InvioCekirgeProgrami2024;
 			productReference = 98A5F80B2BBD64F5008AE472 /* InvioCekirgeProgrami2024.app */;
@@ -281,6 +284,7 @@
 			mainGroup = 98A5F8022BBD64F5008AE472;
 			packageReferences = (
 				98AFAF1A2BD02AAA008A3E0A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				98236F8B2BD2B2D300DE138F /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 98A5F80C2BBD64F5008AE472 /* Products */;
 			projectDirPath = "";
@@ -296,7 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98A5F81B2BBD64F6008AE472 /* LaunchScreen.storyboard in Resources */,
+				98C2A97D2BD2BFE9008E638B /* confetti.json in Resources */,
 				98A5F8182BBD64F6008AE472 /* Assets.xcassets in Resources */,
 				98B7C25D2BC9B38F00752196 /* MainCell.xib in Resources */,
 				98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */,
@@ -340,14 +344,6 @@
 				98A5F8152BBD64F5008AE472 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		98A5F8192BBD64F6008AE472 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				98A5F81A2BBD64F6008AE472 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -554,6 +550,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		98236F8B2BD2B2D300DE138F /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 		98AFAF1A2BD02AAA008A3E0A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -565,6 +569,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		98236F8C2BD2B2D300DE138F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98236F8B2BD2B2D300DE138F /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		98AFAF1B2BD02AAA008A3E0A /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 98AFAF1A2BD02AAA008A3E0A /* XCRemoteSwiftPackageReference "realm-swift" */;

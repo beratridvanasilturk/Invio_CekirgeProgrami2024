@@ -117,7 +117,7 @@ final class MainViewModel {
     }
     
     func showAlertForNoInternetConnection(in viewController: UIViewController) {
-        let alert = UIAlertController(title: "İnternet Bağlantısı Yok !", message: "Lütfen Invio Çekirge Uygulamasına devam edebilmek için internet bağlantınızı kontrol edin.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "İnternet Bağlantısı Yok !", message: "Invio Çekirge Programı Üniversiteler Uygulamasına devam edebilmek için lütfen internet bağlantınızı kontrol edin.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
         

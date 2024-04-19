@@ -6,54 +6,63 @@
 //
 
 import UIKit
+import Lottie
 
 final class SplashViewController: UIViewController {
+    
+    private var badInternetConnection = false
+    
+    private let viewModel = MainViewModel()
+    private var animationView: LottieAnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchDataForFirstPage() { success in
-            if success {
-                DispatchQueue.main.async {
-                    
-                    print("🟢🟢🟢 Splash Ekrani Veri Cekme Basarili, Ana Ekrana Aktariliyor...")
-                    self.transitionToMainScreen()
-                }
+        startAnimation()
+        checkInternet()
+        getData()
+      
+    }
+    
+    private func checkInternet() {
+        viewModel.checkInternetConnection { isConnected in
+            if !isConnected {
+                self.animationView!.stop()
+                self.badInternetConnection = true
+                self.viewModel.showAlertForNoInternetConnection(in: self)
             } else {
-                DispatchQueue.main.async {
-                    self.showErrorAndStayOnLaunchScreen()
-                }
+                self.badInternetConnection = false
             }
         }
     }
     
-    private func fetchDataForFirstPage(completion: @escaping (Bool) -> Void) {
-        
-        let urlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/page-1.json"
-        
-        if let url = URL(string: urlString) {
-            let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    print("🔴🔴🔴 Splash Ekrani Veri Cekme Hatası: \(error)")
-                    completion(false)
+    private func startAnimation() {
+        animationView = .init(name: "confetti")
+        animationView!.frame = view.bounds
+        animationView!.contentMode = .scaleAspectFit
+        animationView!.loopMode = .loop
+        animationView!.animationSpeed = 0.7
+        view.addSubview(animationView!)
+        animationView!.play()
+    }
+    
+    private func getData() {
+        viewModel.fetchData(updatePage: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                guard !self.badInternetConnection else {
                     return
                 }
-                completion(true)
+                self.transitionToMainScreen()
             }
-            dataTask.resume()
         }
     }
     
     private func transitionToMainScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        guard let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
+            return
+        }
         mainViewController.modalPresentationStyle = .fullScreen
-        present(mainViewController, animated: true, completion: nil)
-    }
-    
-    private func showErrorAndStayOnLaunchScreen() {
-        let alert = UIAlertController(title: "Hata", message: "Veri çekme işlemi başarısız oldu.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        self.present(mainViewController, animated: false, completion: nil)
     }
 }

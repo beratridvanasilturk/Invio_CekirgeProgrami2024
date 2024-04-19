@@ -9,10 +9,10 @@
 
 import UIKit
 
-class FavListViewController: UIViewController {
+final class FavListViewController: UIViewController {
     
+    //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
     private let viewModel = FavListViewModel()
     
     override func viewDidLoad() {
@@ -30,6 +30,7 @@ class FavListViewController: UIViewController {
     }
 }
 
+//MARK: - Table View Delegate & Data Source
 extension FavListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,11 +51,10 @@ extension FavListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - PersistentManagerDelegate
 extension FavListViewController: PersistentManagerDelegate {
     func favListUpdated() {
-        
         viewModel.updateModel()
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

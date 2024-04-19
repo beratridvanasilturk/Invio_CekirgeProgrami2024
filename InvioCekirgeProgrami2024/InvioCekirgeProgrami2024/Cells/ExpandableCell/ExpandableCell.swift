@@ -8,11 +8,11 @@
 import UIKit
 
 final class ExpandableCell: UITableViewCell {
-    
+    // MARK: - Props
     private let viewModel = ExpandableModel()
-    
     static let cellIdentifier = String(describing: ExpandableCell.self)
     
+    // MARK: - Outlets
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var faxLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
@@ -20,7 +20,6 @@ final class ExpandableCell: UITableViewCell {
     @IBOutlet weak var rectorLabel: UILabel!
     @IBOutlet weak var expendStackView: UIStackView!
     @IBOutlet weak var favoriteButton: UIButton!
-    
     @IBOutlet weak var label: UILabel!
     
     var model: ExpandableCellContentModel? {
@@ -45,6 +44,11 @@ final class ExpandableCell: UITableViewCell {
         firstSetup()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    // MARK: - Funcs
     private func firstSetup() {
         phoneLabel.isUserInteractionEnabled = true
         websiteLabel.isUserInteractionEnabled = true
@@ -54,13 +58,8 @@ final class ExpandableCell: UITableViewCell {
         websiteLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(websiteButtonTapped)))
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-    }
-    
     private func findParentViewController() -> UIViewController? {
-        // Kendini bir sonraki akran nesneye döndürerek ve sınıfını kontrol ederek gezinme
+        // Kendini bir sonraki akran nesneye döndürerek ve sınıfını kontrol ederek gezinme islemi
         var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder?.next
@@ -71,13 +70,12 @@ final class ExpandableCell: UITableViewCell {
         return nil
     }
     
-    // Backendden gelen dataya gore tel no'yu yeniden duzenler, aranabilecek seviyeye getirir
+    // Backendden gelen dataya gore tel no'yu yeniden duzenler, aranabilecek seviyeye getirir.
     private func makePhoneCall(to phoneNumber: String) {
-        
         var formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
         
-        // Telefon numarası başında 0 rakamı yoksa, başına 0 ekle
-        // Trabzon Avrasya Universitesi Basinda Sifir Eksik Gelen Telefon String'i icin kod duzenlemesi
+        // Telefon numarası başında 0 rakamı yoksa, başına 0 ekler
+        // Orn: Trabzon Avrasya Universitesi Basinda Sifir Eksik
           if !formattedNumber.hasPrefix("0") {
               formattedNumber = "0" + formattedNumber
           }
@@ -104,15 +102,14 @@ final class ExpandableCell: UITableViewCell {
     }
     
     @objc private func websiteButtonTapped() {
-        
         if let website = model?.universityModel.website{
-            
             if let viewController = self.findParentViewController() {
                 viewModel.openURLInSafariSheet(urlString: website, from: viewController)
             }
         }
     }
     
+    // MARK: Actions
     @IBAction private func favButtonTapped() {
         if let universityModel = model?.universityModel {
             PersistentManager.shared.checkFavorites(item: universityModel)

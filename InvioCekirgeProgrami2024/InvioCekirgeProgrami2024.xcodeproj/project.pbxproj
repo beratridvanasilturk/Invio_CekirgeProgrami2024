@@ -156,6 +156,7 @@
 		98A5F8022BBD64F5008AE472 = {
 			isa = PBXGroup;
 			children = (
+				98AFAF282BD0B643008A3E0A /* TODO */,
 				98A5F80D2BBD64F5008AE472 /* InvioCekirgeProgrami2024 */,
 				98A5F80C2BBD64F5008AE472 /* Products */,
 			);
@@ -183,7 +184,6 @@
 				98A5F8142BBD64F5008AE472 /* Main.storyboard */,
 				98A5F8172BBD64F6008AE472 /* Assets.xcassets */,
 				98A5F81C2BBD64F6008AE472 /* Info.plist */,
-				98AFAF282BD0B643008A3E0A /* TODO */,
 			);
 			path = InvioCekirgeProgrami2024;
 			sourceTree = "<group>";

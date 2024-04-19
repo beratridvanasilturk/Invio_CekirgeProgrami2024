@@ -8,8 +8,9 @@
 import UIKit
 
 class MainCell: UITableViewCell {
+    // MARK: - Props
     static let cellIdentifier = String(describing: MainCell.self)
-
+    // MARK: - Outlest
     @IBOutlet private weak var label: UILabel!
     
     var title: String? {
@@ -17,15 +18,12 @@ class MainCell: UITableViewCell {
             label.text = title
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }

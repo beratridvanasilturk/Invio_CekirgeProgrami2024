@@ -4,29 +4,26 @@
 //
 //  Created by Berat Ridvan Asilturk on 3.04.2024.
 //
-// TODO: -
-// Add MARK Props DidLoad (LifeCycle) vs
 
 import UIKit
 
 final class MainViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
     
+    // MARK: - Props
     private let refreshControl = UIRefreshControl()
     private let viewModel = MainViewModel()
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        viewModel.checkInternetConnection { isConnected in
-            if !isConnected {
-                self.viewModel.showAlertForNoInternetConnection(in: self)
-            }
-        }
+        checkInternetAndShowAlert()
         
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
@@ -51,6 +48,7 @@ final class MainViewController: UIViewController {
         PersistentManager.shared.delegate = self
     }
     
+    // MARK: - Funcs
     private func updateUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -62,13 +60,20 @@ final class MainViewController: UIViewController {
     @objc private func refreshData() {
         
         viewModel.resetContent()
-        
         viewModel.fetchData{
             self.updateUI()
         }
     }
     
+    private func checkInternetAndShowAlert() {
+        viewModel.checkInternetConnection { isConnected in
+            if !isConnected {
+                self.viewModel.showAlertForNoInternetConnection(in: self)
+            }
+        }
+    }
     
+    // MARK: - Actions
     @IBAction private func expandButtonTapped() {
         
         viewModel.closeExpandedCells()
@@ -96,7 +101,7 @@ extension MainViewController: UITableViewDelegate {
         }
     }
     
-    //     Pagination
+    // MARK: - Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if viewModel.paginationFlag(indexPath: indexPath) {
             viewModel.fetchData(updatePage: true) {
@@ -138,7 +143,7 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
-
+// MARK: Persistent Manager Delegate
 extension MainViewController: PersistentManagerDelegate {
     func favListUpdated() {
         DispatchQueue.main.async {

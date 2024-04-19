@@ -10,12 +10,13 @@ import Network
 
 final class MainViewModel {
     
+    // MARK: - Props
     private var totalPage = 1
     private var currentPage = 1
-    
     let monitor = NWPathMonitor()
     private (set) var sections: [SectionModel] = []
     
+    // MARK: - Funcs
     func fetchData(updatePage: Bool = false, completion: (() -> Void)? = nil) {
         
         if updatePage {
@@ -34,7 +35,8 @@ final class MainViewModel {
         let dataTask = session.dataTask(with: url) { data, response, error in
             
             guard error == nil else {
-                print(error?.localizedDescription)
+                print("⚠️⚠️⚠️ FETCDATA ERROR:")
+                print(error?.localizedDescription ?? "Tanimlanamayan Hata")
                 return
             }
             

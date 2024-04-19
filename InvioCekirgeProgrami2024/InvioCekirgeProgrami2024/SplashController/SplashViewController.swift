@@ -10,11 +10,12 @@ import Lottie
 
 final class SplashViewController: UIViewController {
     
+    // MARK: - Props
     private var badInternetConnection = false
-    
     private let viewModel = MainViewModel()
     private var animationView: LottieAnimationView?
     
+    // MARK: - LifeCylce
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +24,7 @@ final class SplashViewController: UIViewController {
         getData()
       
     }
-    
+    // MARK: - Funcs
     private func checkInternet() {
         viewModel.checkInternetConnection { isConnected in
             if !isConnected {

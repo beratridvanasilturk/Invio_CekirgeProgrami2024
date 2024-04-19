@@ -21,6 +21,7 @@ struct ExpandableCellContentModel {
 
 final class ExpandableModel {
     
+    //MARK: - Funcs
     func formatPhoneNumber(_ input: String) -> String? {
         
         let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
@@ -56,10 +57,11 @@ final class ExpandableModel {
     }
     
     private func checkUrlForHttps(_ urlString: String) -> String {
-        // Hakkari universitesinde backend'den gelen tek string icerisindeki 2 farkli url icin kod duzenlemesi
+        // Backend'den gelen string icerisindeki 2 farkli url icin kod duzenlemesi
+        // Orn: Hakkari Universitesi
         let parts = urlString.split(separator: " ", maxSplits: 1)
         
-        // ilk url string'i kabul eder
+        // ilk url string'i kabul eder, devamini isleme almayiz
         let trimmedUrlString = String(parts[0])
         
         // "Https:" varligini kontrol eder

@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 // MARK: - Persistent Manager
-
 class FavoriModel: Object {
     @Persisted var name: String?
     @Persisted var phone: String?
@@ -95,6 +94,5 @@ class PersistentManager {
         let favorites = realm.objects(FavoriModel.self)
         
         return favorites.contains { $0.name == item.name }
-        
     }
 }

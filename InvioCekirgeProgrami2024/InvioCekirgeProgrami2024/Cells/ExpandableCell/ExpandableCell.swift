@@ -44,9 +44,9 @@ final class ExpandableCell: UITableViewCell {
         firstSetup()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//    }
     
     // MARK: - Funcs
     private func firstSetup() {

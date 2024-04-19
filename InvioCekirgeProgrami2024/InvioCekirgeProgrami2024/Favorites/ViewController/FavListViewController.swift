@@ -21,6 +21,8 @@ final class FavListViewController: UIViewController {
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.reloadData()
         
+        checkFavListEmpty()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,6 +30,25 @@ final class FavListViewController: UIViewController {
         
         PersistentManager.shared.delegate = self
     }
+    
+    private func checkFavListEmpty() {
+        if viewModel.favList.isEmpty {
+            let label = UILabel()
+            label.text = "Henüz bir üniversite eklemedin!"
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 24)
+            
+            // Auto Layout'u kullanarak ekranın ortasına yerleştirme
+            label.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(label)
+            
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        }
+    }
+    
 }
 
 //MARK: - Table View Delegate & Data Source

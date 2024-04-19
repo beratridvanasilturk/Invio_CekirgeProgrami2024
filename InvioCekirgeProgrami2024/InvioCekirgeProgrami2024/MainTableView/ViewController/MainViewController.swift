@@ -35,10 +35,10 @@ final class MainViewController: UIViewController {
             self.updateUI()
         }
         
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        //            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
-        //            self.present(vc, animated: true)
-        //        }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
+                    self.present(vc, animated: true)
+                }
         
     }
     

@@ -9,7 +9,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -81,7 +81,7 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - Table View Delegates
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
@@ -108,7 +108,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 // MARK: TableView Data Source
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // section main cell title
@@ -139,7 +139,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 
-extension ViewController: PersistentManagerDelegate {
+extension MainViewController: PersistentManagerDelegate {
     func favListUpdated() {
         DispatchQueue.main.async {
             self.tableView.reloadData()

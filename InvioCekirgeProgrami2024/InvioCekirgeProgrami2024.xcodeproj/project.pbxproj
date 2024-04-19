@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98236F8A2BD2A5C700DE138F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98236F892BD2A5C700DE138F /* SplashViewController.swift */; };
 		985A1A582BCF19E500A620E4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A1A572BCF19E500A620E4 /* Array+Extensions.swift */; };
 		985A1A5C2BCF1F5F00A620E4 /* ExpandableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A1A5B2BCF1F5F00A620E4 /* ExpandableModel.swift */; };
 		989717832BC977A70021E600 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989717822BC977A70021E600 /* MainViewModel.swift */; };
 		98A5F80F2BBD64F5008AE472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */; };
 		98A5F8112BBD64F5008AE472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */; };
-		98A5F8132BBD64F5008AE472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8122BBD64F5008AE472 /* ViewController.swift */; };
+		98A5F8132BBD64F5008AE472 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5F8122BBD64F5008AE472 /* MainViewController.swift */; };
 		98A5F8162BBD64F5008AE472 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98A5F8142BBD64F5008AE472 /* Main.storyboard */; };
 		98A5F8182BBD64F6008AE472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A5F8172BBD64F6008AE472 /* Assets.xcassets */; };
 		98A5F81B2BBD64F6008AE472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98A5F8192BBD64F6008AE472 /* LaunchScreen.storyboard */; };
@@ -33,13 +34,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		98236F892BD2A5C700DE138F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		985A1A572BCF19E500A620E4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		985A1A5B2BCF1F5F00A620E4 /* ExpandableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableModel.swift; sourceTree = "<group>"; };
 		989717822BC977A70021E600 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		98A5F80B2BBD64F5008AE472 /* InvioCekirgeProgrami2024.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvioCekirgeProgrami2024.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		98A5F8122BBD64F5008AE472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		98A5F8122BBD64F5008AE472 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		98A5F8152BBD64F5008AE472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98A5F8172BBD64F6008AE472 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98A5F81A2BBD64F6008AE472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98236F882BD2A59C00DE138F /* SplashController */ = {
+			isa = PBXGroup;
+			children = (
+				98236F892BD2A5C700DE138F /* SplashViewController.swift */,
+			);
+			path = SplashController;
+			sourceTree = "<group>";
+		};
 		985A1A5D2BCF1FBB00A620E4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +121,7 @@
 		9866FE062BC32F7E00C9C478 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				98A5F8122BBD64F5008AE472 /* ViewController.swift */,
+				98A5F8122BBD64F5008AE472 /* MainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -159,8 +169,9 @@
 		98A5F80D2BBD64F5008AE472 /* InvioCekirgeProgrami2024 */ = {
 			isa = PBXGroup;
 			children = (
-				98B7C25A2BC9B36800752196 /* Cells */,
+				98236F882BD2A59C00DE138F /* SplashController */,
 				9866FE032BC32F4C00C9C478 /* MainTableView */,
+				98B7C25A2BC9B36800752196 /* Cells */,
 				9866FE042BC32F5900C9C478 /* Favorites */,
 				98AFAF1F2BD0719E008A3E0A /* PersistentManager */,
 				985A1A5D2BCF1FBB00A620E4 /* Extensions */,
@@ -303,11 +314,12 @@
 				989717832BC977A70021E600 /* MainViewModel.swift in Sources */,
 				985A1A5C2BCF1F5F00A620E4 /* ExpandableModel.swift in Sources */,
 				98AFAF242BD07804008A3E0A /* FavListViewController.swift in Sources */,
+				98236F8A2BD2A5C700DE138F /* SplashViewController.swift in Sources */,
 				98A5F8292BBD806D008AE472 /* UniversitiesResponseModel.swift in Sources */,
 				98A5F82B2BBD809C008AE472 /* DataResponseModel.swift in Sources */,
 				98AFAF272BD08482008A3E0A /* FavListViewModel.swift in Sources */,
 				985A1A582BCF19E500A620E4 /* Array+Extensions.swift in Sources */,
-				98A5F8132BBD64F5008AE472 /* ViewController.swift in Sources */,
+				98A5F8132BBD64F5008AE472 /* MainViewController.swift in Sources */,
 				98A5F80F2BBD64F5008AE472 /* AppDelegate.swift in Sources */,
 				98A5F8272BBD7BB8008AE472 /* MainResponseModel.swift in Sources */,
 				98B7C2662BC9B41A00752196 /* SectionModel.swift in Sources */,

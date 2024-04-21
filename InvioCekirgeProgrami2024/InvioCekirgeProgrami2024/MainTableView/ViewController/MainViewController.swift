@@ -37,9 +37,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         PersistentManager.shared.delegate = self
-        
         self.tableView.reloadData()
     }
     
@@ -53,7 +51,6 @@ final class MainViewController: UIViewController {
     }
     
     @objc private func refreshData() {
-        
         viewModel.resetContent()
         viewModel.fetchData{
             self.updateUI()
@@ -68,9 +65,7 @@ final class MainViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction private func expandButtonTapped() {
-        
         viewModel.closeExpandedCells()
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
             print("🧲🧲🧲 All Cells Closed")

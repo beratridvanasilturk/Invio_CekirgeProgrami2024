@@ -19,7 +19,6 @@ class MainCell: UITableViewCell {
         didSet {
             label.text = model?.dataModel.province
             iconLabel.text = (model?.hideContent ?? false) ? "+" : "-"
-//            iconLabel.isHidden =  model?.contentList.isEmpty ?? false
             if model?.contentList.isEmpty == true {
                 iconLabel.text = " "
             }

@@ -42,7 +42,6 @@ class PersistentManager {
         favoriModel.adress = item.adress
         favoriModel.rector = item.rector
         
-        
         try! realm.write{
             realm.add(favoriModel)
         }
@@ -90,9 +89,7 @@ class PersistentManager {
     func isFavorited(item: UniversitiesResponseModel?) -> Bool {
         
         guard let item else { return false }
-        
         let favorites = realm.objects(FavoriModel.self)
-        
         return favorites.contains { $0.name == item.name }
     }
 }

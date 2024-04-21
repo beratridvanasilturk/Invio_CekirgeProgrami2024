@@ -26,17 +26,16 @@ final class ExpandableCell: UITableViewCell {
     
     /// Icerigi kontrol eder, model de name harici herhangi bir data yoksa, expandable stack gizlenmesi icin kullanilir.
     func iconLabelWillHide() -> Bool {
-
-        var controlFlag = false
+        var controllFlag = false
         
-        if model?.universityModel.phone == "-" { controlFlag = true }
-        if model?.universityModel.fax == "-" { controlFlag = true }
-        if model?.universityModel.website == "-" { controlFlag = true }
-        if model?.universityModel.email == "-" { controlFlag = true }
-        if model?.universityModel.adress == "-" { controlFlag = true }
-        if model?.universityModel.rector == "-" { controlFlag = true }
+        if model?.universityModel.phone == "-" { controllFlag = true }
+        if model?.universityModel.fax == "-" { controllFlag = true }
+        if model?.universityModel.website == "-" { controllFlag = true }
+        if model?.universityModel.email == "-" { controllFlag = true }
+        if model?.universityModel.adress == "-" { controllFlag = true }
+        if model?.universityModel.rector == "-" { controllFlag = true }
         
-        return controlFlag
+        return controllFlag
     }
 
     var model: ExpandableCellContentModel? {
@@ -65,12 +64,10 @@ final class ExpandableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         firstSetup()
     }
     
     // MARK: - Funcs
-    
     private func firstSetup() {
         phoneLabel.isUserInteractionEnabled = true
         websiteLabel.isUserInteractionEnabled = true
@@ -80,6 +77,7 @@ final class ExpandableCell: UITableViewCell {
         websiteLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(websiteButtonTapped)))
     }
     
+    // Safari Sheet Icin Kullanildi
     private func findParentViewController() -> UIViewController? {
         // Kendini bir sonraki akran nesneye döndürerek ve sınıfını kontrol ederek gezinme islemi
         var parentResponder: UIResponder? = self
@@ -139,9 +137,7 @@ final class ExpandableCell: UITableViewCell {
         }
     }
     
-    
     //MARK: - Helpers
-    
     private func formatPhoneNumber(_ input: String) -> String? {
         
         let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
@@ -150,7 +146,6 @@ final class ExpandableCell: UITableViewCell {
             print("Invalid Phone Number")
             return nil
         }
-        
         let countryCode = "+\(digits.prefix(1))"
         let localNumber = digits.dropFirst()
         let formattedPhoneNumber = "\(countryCode)\(localNumber)"
@@ -163,7 +158,6 @@ final class ExpandableCell: UITableViewCell {
             print("Invalid URL")
             return
         }
-        
         let secureURLString = checkUrlForHttps(urlString)
         
         if let url = URL(string: secureURLString) {
@@ -177,10 +171,8 @@ final class ExpandableCell: UITableViewCell {
         // Backend'den gelen string icerisindeki 2 farkli url icin kod duzenlemesi
         // Orn: Hakkari Universitesi
         let parts = urlString.split(separator: " ", maxSplits: 1)
-        
         // ilk url string'i kabul eder, devamini isleme almayiz
         let trimmedUrlString = String(parts[0])
-        
         // "Https:" varligini kontrol eder
         if trimmedUrlString.hasPrefix("https://") {
             return trimmedUrlString

@@ -105,12 +105,4 @@ final class MainViewModel {
     func paginationFlag(indexPath: IndexPath) -> Bool {
         currentPage < totalPage && indexPath.section == sections.count - 1
     }
-    
-    func showAlertForNoInternetConnection(in viewController: UIViewController) {
-        let alert = UIAlertController(title: "İnternet Bağlantısı Yok !", message: "Invio Çekirge Programı Üniversiteler Uygulamasına devam edebilmek için lütfen internet bağlantınızı kontrol edin.", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
-        
-        viewController.present(alert, animated: true, completion: nil)
-    }
 }

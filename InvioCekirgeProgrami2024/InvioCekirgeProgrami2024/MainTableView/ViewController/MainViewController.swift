@@ -29,7 +29,7 @@ final class MainViewController: UIViewController {
         self.refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
         self.tableView.refreshControl = self.refreshControl
        
-        title = "Universiteler"
+        title = "Üniversiteler"
         let favButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(favButtonTapped))
         navigationItem.rightBarButtonItem = favButtonItem
         
@@ -61,7 +61,7 @@ final class MainViewController: UIViewController {
     }
     
     @objc private func favButtonTapped() {
-        let favListViewController = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
+        let favListViewController = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavoriteListViewController
         self.navigationController?.pushViewController(favListViewController, animated: true)
     }
     

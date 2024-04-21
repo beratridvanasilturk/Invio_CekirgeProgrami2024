@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="2212.9770992366412" y="0.70422535211267612"/>
         </scene>
-        <!--Fav List View Controller-->
+        <!--Favorite List View Controller-->
         <scene sceneID="4dY-6R-wQK">
             <objects>
-                <viewController storyboardIdentifier="FavListViewController" id="Idl-vR-D1K" customClass="FavListViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavListViewController" id="Idl-vR-D1K" customClass="FavoriteListViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G5a-GF-I0F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

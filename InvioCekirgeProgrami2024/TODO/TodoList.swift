@@ -13,4 +13,3 @@
 // - Tanitim Screen Records Alinip Eklenecek
 // -
 // - Add MARK Props DidLoad (LifeCycle) vs
-// - Need Fix UI Update Delegate Issue When Tapped UnFav

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SafariServices
 
 // Presentation Model
 struct ExpandableCellContentModel {
@@ -16,59 +15,5 @@ struct ExpandableCellContentModel {
     init(hideContent: Bool = true, universityModel: UniversitiesResponseModel) {
         self.hideContent = hideContent
         self.universityModel = universityModel
-    }
-}
-
-final class ExpandableModel {
-    
-    //MARK: - Funcs
-    func formatPhoneNumber(_ input: String) -> String? {
-        
-        let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        
-        guard digits.count >= 10 else {
-            print("Invalid Phone Number")
-            return nil
-        }
-        let countryCode = "+\(digits.prefix(1))"
-        
-        let localNumber = digits.dropFirst()
-        
-        let formattedPhoneNumber = "\(countryCode)\(localNumber)"
-        
-        return formattedPhoneNumber
-    }
-    
-    func openURLInSafariSheet(urlString: String, from viewController: UIViewController) {
-        guard urlString.count >= 10 else {
-            print("Invalid URL")
-            return
-        }
-        
-        let secureURLString = checkUrlForHttps(urlString)
-        
-        if let url = URL(string: secureURLString) {
-            let safariViewController = SFSafariViewController(url: url)
-            
-            safariViewController.modalPresentationStyle = .pageSheet
-            
-            viewController.present(safariViewController, animated: true, completion: nil)
-        }
-    }
-    
-    private func checkUrlForHttps(_ urlString: String) -> String {
-        // Backend'den gelen string icerisindeki 2 farkli url icin kod duzenlemesi
-        // Orn: Hakkari Universitesi
-        let parts = urlString.split(separator: " ", maxSplits: 1)
-        
-        // ilk url string'i kabul eder, devamini isleme almayiz
-        let trimmedUrlString = String(parts[0])
-        
-        // "Https:" varligini kontrol eder
-        if trimmedUrlString.hasPrefix("https://") {
-            return trimmedUrlString
-        } else {
-            return "https://\(trimmedUrlString)"
-        }
     }
 }

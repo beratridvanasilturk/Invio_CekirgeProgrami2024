@@ -10,20 +10,19 @@ import UIKit
 class MainCell: UITableViewCell {
     // MARK: - Props
     static let cellIdentifier = String(describing: MainCell.self)
+    
     // MARK: - Outlest
     @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var iconLabel: UILabel!
     
-    var title: String? {
+    var model: SectionModel? {
         didSet {
-            label.text = title
+            label.text = model?.dataModel.province
+            iconLabel.text = (model?.hideContent ?? false) ? "+" : "-"
+//            iconLabel.isHidden =  model?.contentList.isEmpty ?? false
+            if model?.contentList.isEmpty == true {
+                iconLabel.text = " "
+            }
         }
     }
-//    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
 }

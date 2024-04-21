@@ -34,6 +34,8 @@
 		98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B7C2612BC9B3D400752196 /* ExpandableCell.xib */; };
 		98B7C2642BC9B3ED00752196 /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */; };
 		98B7C2662BC9B41A00752196 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2652BC9B41A00752196 /* SectionModel.swift */; };
+		EA715DE42BD5842D002B96ED /* emptyAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = EA715DE32BD5842C002B96ED /* emptyAnimation.json */; };
+		EA715DE62BD588F8002B96ED /* emptyAnimation2.json in Resources */ = {isa = PBXBuildFile; fileRef = EA715DE52BD588F8002B96ED /* emptyAnimation2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		98B7C2612BC9B3D400752196 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
 		98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		98B7C2652BC9B41A00752196 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		EA715DE32BD5842C002B96ED /* emptyAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyAnimation.json; sourceTree = "<group>"; };
+		EA715DE52BD588F8002B96ED /* emptyAnimation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyAnimation2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				98AFAF222BD07804008A3E0A /* FavListViewController.swift */,
+				EA715DE52BD588F8002B96ED /* emptyAnimation2.json */,
+				EA715DE32BD5842C002B96ED /* emptyAnimation.json */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -309,7 +315,9 @@
 				98A5F8182BBD64F6008AE472 /* Assets.xcassets in Resources */,
 				9800EDD32BD50C2000341EEA /* FailAnimation.json in Resources */,
 				98B7C25D2BC9B38F00752196 /* MainCell.xib in Resources */,
+				EA715DE42BD5842D002B96ED /* emptyAnimation.json in Resources */,
 				9800EDD92BD510CE00341EEA /* SuccessAnimation.json in Resources */,
+				EA715DE62BD588F8002B96ED /* emptyAnimation2.json in Resources */,
 				98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */,
 				98A5F8162BBD64F5008AE472 /* Main.storyboard in Resources */,
 			);

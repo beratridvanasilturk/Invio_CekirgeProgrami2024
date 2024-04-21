@@ -260,7 +260,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emptyView" destination="xg5-rH-FYF" id="mDz-TH-PUJ"/>
                         <segue destination="PoG-1y-v3q" kind="presentation" identifier="goToMainScene" id="Tlh-5q-hi7"/>
                     </connections>
                 </viewController>

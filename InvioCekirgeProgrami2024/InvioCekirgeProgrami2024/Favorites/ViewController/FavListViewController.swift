@@ -8,12 +8,17 @@
 // TODO: - Need Fix UI Update Delegate Issue When Tapped UnFav
 
 import UIKit
+import Lottie
 
 final class FavListViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     private let viewModel = FavListViewModel()
+    
+    private var animationView: LottieAnimationView?
+    private let animationWidth: CGFloat = 180
+    private let animationHeight: CGFloat = 180
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,7 @@ final class FavListViewController: UIViewController {
         
         checkFavListEmpty()
         
+        title = "Favoriler"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,10 +39,11 @@ final class FavListViewController: UIViewController {
     
     private func checkFavListEmpty() {
         if viewModel.favList.isEmpty {
+            emptyAnimation()
             let label = UILabel()
             label.text = "Henüz bir üniversite eklemedin!"
             label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 24)
+            label.font = UIFont.systemFont(ofSize: 20)
             
             // Auto Layout'u kullanarak ekranın ortasına yerleştirme
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +56,24 @@ final class FavListViewController: UIViewController {
         }
     }
     
+    // MARK: - Animation Funcs
+    private func emptyAnimation() {
+        animationView = .init(name: "emptyAnimation2")
+        if let animationView {
+            let screenWidth = view.bounds.width
+            let screenHeight = view.bounds.height
+            let imageCenterX = screenWidth / 2
+            let imageCenterY = screenHeight / 2
+            let animationFrame = CGRect(x: imageCenterX - animationWidth / 2, y: imageCenterY - animationHeight / 2 - 100, width: animationWidth, height: animationHeight)
+            animationView.frame = animationFrame
+            animationView.frame = animationFrame
+            animationView.contentMode = .scaleToFill
+            animationView.loopMode = .loop
+            animationView.animationSpeed = 1
+            view.addSubview(animationView)
+            animationView.play()
+        }
+    }
 }
 
 //MARK: - Table View Delegate & Data Source
@@ -79,5 +104,7 @@ extension FavListViewController: PersistentManagerDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        
+        checkFavListEmpty()
     }
 }

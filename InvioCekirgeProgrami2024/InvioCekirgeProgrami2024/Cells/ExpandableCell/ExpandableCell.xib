@@ -11,81 +11,96 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="667" id="Q2g-YY-F9w" customClass="ExpandableCell" customModule="InvioCekirgeProgrami2024" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="667" id="4Pl-lJ-ZZ1" customClass="ExpandableCell" customModule="InvioCekirgeProgrami2024" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q2g-YY-F9w" id="jX7-TO-UPP">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Pl-lJ-ZZ1" id="taI-vQ-5sZ">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v2Q-sf-Fvq">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="s8V-6K-KOb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMg-eh-uew" userLabel="Main View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sny-Jz-bei" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6y-Ub-7qd">
-                                        <rect key="frame" x="32" y="15" width="280" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <color key="textColor" name="InvioGray"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVr-FE-rdL">
-                                        <rect key="frame" x="250.33333333333334" y="8" width="50.666666666666657" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                                        <connections>
-                                            <action selector="favButtonTapped" destination="Q2g-YY-F9w" eventType="touchUpInside" id="J9b-5A-RH2"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MQ7-8Q-TXv">
+                                        <rect key="frame" x="10" y="0.0" width="300" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqE-Io-yjv" userLabel="Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="HaJ-en-t9U"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLD-PB-F3o">
+                                                <rect key="frame" x="38.000000000000014" y="0.0" width="203.33333333333337" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" name="InvioGray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT4-2F-Q29">
+                                                <rect key="frame" x="249.33333333333329" y="0.0" width="50.666666666666657" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50.666666666666657" id="Nrq-t3-4T0"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                <connections>
+                                                    <action selector="favButtonTapped" destination="4Pl-lJ-ZZ1" eventType="touchUpInside" id="4Df-q7-Wec"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" name="InvioGreen"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="gVr-FE-rdL" firstAttribute="top" secondItem="sMg-eh-uew" secondAttribute="top" constant="8" id="3fL-tZ-Vqs"/>
-                                    <constraint firstAttribute="height" constant="50" id="JA7-TW-5dz"/>
-                                    <constraint firstAttribute="trailing" secondItem="gVr-FE-rdL" secondAttribute="trailing" constant="19" id="Ozw-ud-ukg"/>
-                                    <constraint firstItem="m6y-Ub-7qd" firstAttribute="top" secondItem="sMg-eh-uew" secondAttribute="top" constant="15" id="l0Y-6Y-Oz4"/>
-                                    <constraint firstAttribute="bottom" secondItem="m6y-Ub-7qd" secondAttribute="bottom" constant="15" id="s11-yf-LDp"/>
-                                    <constraint firstAttribute="trailing" secondItem="m6y-Ub-7qd" secondAttribute="trailing" constant="8" id="xkI-KF-xoA"/>
-                                    <constraint firstItem="m6y-Ub-7qd" firstAttribute="leading" secondItem="sMg-eh-uew" secondAttribute="leading" constant="32" id="yZS-NH-7HV"/>
+                                    <constraint firstAttribute="trailing" secondItem="MQ7-8Q-TXv" secondAttribute="trailing" constant="10" id="MHr-A6-agm"/>
+                                    <constraint firstItem="MQ7-8Q-TXv" firstAttribute="top" secondItem="Sny-Jz-bei" secondAttribute="top" id="Ofn-2Q-HQ7"/>
+                                    <constraint firstAttribute="bottom" secondItem="MQ7-8Q-TXv" secondAttribute="bottom" id="c2M-YM-0u3"/>
+                                    <constraint firstItem="MQ7-8Q-TXv" firstAttribute="leading" secondItem="Sny-Jz-bei" secondAttribute="leading" constant="10" id="gJ2-H3-WuI"/>
+                                    <constraint firstAttribute="height" constant="50" id="lfC-Jl-flH"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B7j-wd-yjA" userLabel="Expend Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b6r-ac-gx1" userLabel="Expend Stack View">
                                 <rect key="frame" x="0.0" y="50" width="320" height="300"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTD-As-VRs">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-gW-H5p">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="nMg-cl-n0x">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="zxf-fN-4uo">
                                                 <rect key="frame" x="48" y="0.0" width="264" height="300"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv6-yg-bKI">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ak5-8X-dkA">
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="54.333333333333336"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="15"/>
                                                         <color key="textColor" name="InvioGreen"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yil-hy-vzP">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4q-h2-V3e">
                                                         <rect key="frame" x="0.0" y="61.333333333333329" width="264" height="54.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="15"/>
                                                         <color key="textColor" name="InvioGreen"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7e-Jt-zOc">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH4-Ha-TEy">
                                                         <rect key="frame" x="0.0" y="122.66666666666667" width="264" height="54.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="15"/>
                                                         <color key="textColor" name="InvioGreen"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTn-tb-ien">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-DG-WMW">
                                                         <rect key="frame" x="0.0" y="184.33333333333334" width="264" height="54.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="15"/>
                                                         <color key="textColor" name="InvioGreen"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtc-O0-y2f">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STv-Hc-sjx">
                                                         <rect key="frame" x="0.0" y="245.66666666666671" width="264" height="54.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="15"/>
                                                         <color key="textColor" name="InvioGreen"/>
@@ -97,11 +112,11 @@
                                         </subviews>
                                         <color key="backgroundColor" name="InvioGray"/>
                                         <constraints>
-                                            <constraint firstItem="nMg-cl-n0x" firstAttribute="top" secondItem="fTD-As-VRs" secondAttribute="top" id="6Nu-Pu-Bw9"/>
-                                            <constraint firstAttribute="trailing" secondItem="nMg-cl-n0x" secondAttribute="trailing" constant="8" id="MzN-f0-R7l"/>
-                                            <constraint firstAttribute="height" constant="300" id="hWp-8B-cvb"/>
-                                            <constraint firstAttribute="bottom" secondItem="nMg-cl-n0x" secondAttribute="bottom" id="igv-Oj-cUk"/>
-                                            <constraint firstItem="nMg-cl-n0x" firstAttribute="leading" secondItem="fTD-As-VRs" secondAttribute="leading" constant="48" id="sFF-Sh-umg"/>
+                                            <constraint firstAttribute="height" constant="300" id="8hO-Hw-gcj"/>
+                                            <constraint firstAttribute="trailing" secondItem="zxf-fN-4uo" secondAttribute="trailing" constant="8" id="QIg-EO-Sm0"/>
+                                            <constraint firstItem="zxf-fN-4uo" firstAttribute="leading" secondItem="pHP-gW-H5p" secondAttribute="leading" constant="48" id="gc7-VE-vgH"/>
+                                            <constraint firstAttribute="bottom" secondItem="zxf-fN-4uo" secondAttribute="bottom" id="kje-1V-rfc"/>
+                                            <constraint firstItem="zxf-fN-4uo" firstAttribute="top" secondItem="pHP-gW-H5p" secondAttribute="top" id="wwr-Zw-rRs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -110,22 +125,23 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="v2Q-sf-Fvq" firstAttribute="top" secondItem="jX7-TO-UPP" secondAttribute="top" id="GUs-Mz-ABo"/>
-                    <constraint firstAttribute="trailing" secondItem="v2Q-sf-Fvq" secondAttribute="trailing" id="GdI-lv-8aI"/>
-                    <constraint firstItem="v2Q-sf-Fvq" firstAttribute="leading" secondItem="jX7-TO-UPP" secondAttribute="leading" id="MG2-R9-9Yr"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="v2Q-sf-Fvq" secondAttribute="bottom" id="YGc-aV-1ro"/>
+                    <constraint firstItem="s8V-6K-KOb" firstAttribute="top" secondItem="taI-vQ-5sZ" secondAttribute="top" id="8c5-OS-86A"/>
+                    <constraint firstAttribute="trailing" secondItem="s8V-6K-KOb" secondAttribute="trailing" id="K4e-d7-8S4"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="s8V-6K-KOb" secondAttribute="bottom" id="mno-mH-v3k"/>
+                    <constraint firstItem="s8V-6K-KOb" firstAttribute="leading" secondItem="taI-vQ-5sZ" secondAttribute="leading" id="vE4-Ng-Nbu"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="wfS-3i-Bbf"/>
+            <viewLayoutGuide key="safeArea" id="kcd-Zq-Lqs"/>
             <connections>
-                <outlet property="adressLabel" destination="RTn-tb-ien" id="Sad-9s-eIT"/>
-                <outlet property="expendStackView" destination="B7j-wd-yjA" id="uaT-6y-prO"/>
-                <outlet property="favoriteButton" destination="gVr-FE-rdL" id="gww-Fe-Ugz"/>
-                <outlet property="faxLabel" destination="Yil-hy-vzP" id="y2b-qH-zRy"/>
-                <outlet property="label" destination="m6y-Ub-7qd" id="T7C-MW-xzM"/>
-                <outlet property="phoneLabel" destination="cv6-yg-bKI" id="Kvk-hl-vm4"/>
-                <outlet property="rectorLabel" destination="Gtc-O0-y2f" id="AEb-Ht-Xzy"/>
-                <outlet property="websiteLabel" destination="N7e-Jt-zOc" id="dol-0r-JWR"/>
+                <outlet property="adressLabel" destination="Vyk-DG-WMW" id="job-U9-DhE"/>
+                <outlet property="expendStackView" destination="b6r-ac-gx1" id="xqs-Fa-7zi"/>
+                <outlet property="favoriteButton" destination="CT4-2F-Q29" id="xAs-C3-rpA"/>
+                <outlet property="faxLabel" destination="B4q-h2-V3e" id="rWD-3r-nRJ"/>
+                <outlet property="iconLabel" destination="DqE-Io-yjv" id="34j-LP-Tdl"/>
+                <outlet property="label" destination="xLD-PB-F3o" id="Qs5-Gy-g4E"/>
+                <outlet property="phoneLabel" destination="Ak5-8X-dkA" id="7xr-zp-gFE"/>
+                <outlet property="rectorLabel" destination="STv-Hc-sjx" id="Q9F-W3-I74"/>
+                <outlet property="websiteLabel" destination="jH4-Ha-TEy" id="H29-sU-XQE"/>
             </connections>
             <point key="canvasLocation" x="149.61832061068702" y="19.718309859154932"/>
         </tableViewCell>
@@ -133,13 +149,13 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <namedColor name="InvioDarkGray">
-            <color red="0.20069456099999999" green="0.20069456099999999" blue="0.20069456099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20100000500679016" green="0.20100000500679016" blue="0.20100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="InvioGray">
             <color red="0.20069456099999999" green="0.20069456099999999" blue="0.20069456099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="InvioGreen">
-            <color red="0.60704988240000002" green="0.83241462710000003" blue="0.01152260881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.60699999332427979" green="0.8320000171661377" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

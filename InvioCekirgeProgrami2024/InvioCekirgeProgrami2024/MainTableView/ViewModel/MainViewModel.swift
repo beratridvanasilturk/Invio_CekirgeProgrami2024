@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import Network
 
 final class MainViewModel {
     
     // MARK: - Props
     private var totalPage = 1
     private var currentPage = 1
-    let monitor = NWPathMonitor()
     private (set) var sections: [SectionModel] = []
     
     // MARK: - Funcs
@@ -106,16 +104,6 @@ final class MainViewModel {
     
     func paginationFlag(indexPath: IndexPath) -> Bool {
         currentPage < totalPage && indexPath.section == sections.count - 1
-    }
-    
-    func checkInternetConnection(completion: @escaping (Bool) -> Void) {
-        // Ağ durumunu izlemek için NWPathMonitor kullanir
-        monitor.pathUpdateHandler = { path in
-            DispatchQueue.main.async {
-                completion(path.status == .unsatisfied ? false : true)
-            }
-        }
-        monitor.start(queue: DispatchQueue.global(qos: .background))
     }
     
     func showAlertForNoInternetConnection(in viewController: UIViewController) {

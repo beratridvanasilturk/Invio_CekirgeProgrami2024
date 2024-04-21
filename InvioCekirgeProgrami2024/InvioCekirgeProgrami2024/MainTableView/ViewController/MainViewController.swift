@@ -14,7 +14,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Props
     private let refreshControl = UIRefreshControl()
-    private let viewModel = MainViewModel()
+    var viewModel: MainViewModel!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -23,22 +23,15 @@ final class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        checkInternetAndShowAlert()
-        
         tableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         tableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         
         self.refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
         self.tableView.refreshControl = self.refreshControl
-        
-        viewModel.fetchData{
-            self.updateUI()
-        }
-        
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
-                    self.present(vc, animated: true)
-                }
+       
+        title = "Universiteler"
+        let favButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(favButtonTapped))
+        navigationItem.rightBarButtonItem = favButtonItem
         
     }
     
@@ -46,6 +39,8 @@ final class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         
         PersistentManager.shared.delegate = self
+        
+        self.tableView.reloadData()
     }
     
     // MARK: - Funcs
@@ -65,14 +60,12 @@ final class MainViewController: UIViewController {
         }
     }
     
-    private func checkInternetAndShowAlert() {
-        viewModel.checkInternetConnection { isConnected in
-            if !isConnected {
-                self.viewModel.showAlertForNoInternetConnection(in: self)
-            }
-        }
+    @objc private func favButtonTapped() {
+        let favListViewController = self.storyboard?.instantiateViewController(withIdentifier: "FavListViewController") as! FavListViewController
+        self.navigationController?.pushViewController(favListViewController, animated: true)
     }
     
+
     // MARK: - Actions
     @IBAction private func expandButtonTapped() {
         
@@ -119,7 +112,8 @@ extension MainViewController: UITableViewDataSource {
         // section main cell title
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
-            cell.title = viewModel.sections[safe: indexPath.section]?.dataModel.province
+            let model = viewModel.sections[safe: indexPath.section]
+            cell.model = model
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell

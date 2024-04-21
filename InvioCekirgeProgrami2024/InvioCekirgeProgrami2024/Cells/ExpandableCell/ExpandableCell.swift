@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SafariServices
 
 final class ExpandableCell: UITableViewCell {
     // MARK: - Props
-    private let viewModel = ExpandableModel()
+
     static let cellIdentifier = String(describing: ExpandableCell.self)
     
     // MARK: - Outlets
@@ -21,11 +22,26 @@ final class ExpandableCell: UITableViewCell {
     @IBOutlet weak var expendStackView: UIStackView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var iconLabel: UILabel!
     
+    /// Icerigi kontrol eder, model de name harici herhangi bir data yoksa, expandable stack gizlenmesi icin kullanilir.
+    func iconLabelWillHide() -> Bool {
+
+        var controlFlag = false
+        
+        if model?.universityModel.phone == "-" { controlFlag = true }
+        if model?.universityModel.fax == "-" { controlFlag = true }
+        if model?.universityModel.website == "-" { controlFlag = true }
+        if model?.universityModel.email == "-" { controlFlag = true }
+        if model?.universityModel.adress == "-" { controlFlag = true }
+        if model?.universityModel.rector == "-" { controlFlag = true }
+        
+        return controlFlag
+    }
+
     var model: ExpandableCellContentModel? {
         didSet {
             label.text = model?.universityModel.name
-            expendStackView.isHidden = model?.hideContent ?? false
             phoneLabel?.text = "Telefon: " + (model?.universityModel.phone ?? "Bulunamadı")
             faxLabel?.text = "Fax: " + (model?.universityModel.fax  ?? "Bulunamadı")
             websiteLabel?.text = "Website: " + (model?.universityModel.website ?? "Bulunamadı")
@@ -35,6 +51,15 @@ final class ExpandableCell: UITableViewCell {
             let image = PersistentManager.shared.isFavorited(item: model?.universityModel) ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
             
             favoriteButton.setImage(image, for: .normal)
+            
+            iconLabel.text = (model?.hideContent ?? false) ? "+" : "-"
+            
+            if iconLabelWillHide() {
+                iconLabel.text = ""
+                expendStackView.isHidden = true
+            } else {
+                expendStackView.isHidden = model?.hideContent ?? false
+            }
         }
     }
     
@@ -44,11 +69,8 @@ final class ExpandableCell: UITableViewCell {
         firstSetup()
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//    }
-    
     // MARK: - Funcs
+    
     private func firstSetup() {
         phoneLabel.isUserInteractionEnabled = true
         websiteLabel.isUserInteractionEnabled = true
@@ -75,7 +97,7 @@ final class ExpandableCell: UITableViewCell {
         var formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
         
         // Telefon numarası başında 0 rakamı yoksa, başına 0 ekler
-        // Orn: Trabzon Avrasya Universitesi Basinda Sifir Eksik
+        // Orn: TcheckFavListEmptyrabzon Avrasya Universitesi Basinda Sifir Eksik
           if !formattedNumber.hasPrefix("0") {
               formattedNumber = "0" + formattedNumber
           }
@@ -95,7 +117,7 @@ final class ExpandableCell: UITableViewCell {
     
     @objc private func phoneButtonTapped() {
         if let phone = model?.universityModel.phone{
-            if let phoneNumber = viewModel.formatPhoneNumber(phone) {
+            if let phoneNumber = formatPhoneNumber(phone) {
                 makePhoneCall(to: phoneNumber)
             }
         }
@@ -104,7 +126,7 @@ final class ExpandableCell: UITableViewCell {
     @objc private func websiteButtonTapped() {
         if let website = model?.universityModel.website{
             if let viewController = self.findParentViewController() {
-                viewModel.openURLInSafariSheet(urlString: website, from: viewController)
+                openURLInSafariSheet(urlString: website, from: viewController)
             }
         }
     }
@@ -114,6 +136,56 @@ final class ExpandableCell: UITableViewCell {
         if let universityModel = model?.universityModel {
             PersistentManager.shared.checkFavorites(item: universityModel)
             print("♥️♥️♥️ Fav Button Tapped")
+        }
+    }
+    
+    
+    //MARK: - Helpers
+    
+    private func formatPhoneNumber(_ input: String) -> String? {
+        
+        let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        guard digits.count >= 10 else {
+            print("Invalid Phone Number")
+            return nil
+        }
+        
+        let countryCode = "+\(digits.prefix(1))"
+        let localNumber = digits.dropFirst()
+        let formattedPhoneNumber = "\(countryCode)\(localNumber)"
+        
+        return formattedPhoneNumber
+    }
+    
+    private func openURLInSafariSheet(urlString: String, from viewController: UIViewController) {
+        guard urlString.count >= 10 else {
+            print("Invalid URL")
+            return
+        }
+        
+        let secureURLString = checkUrlForHttps(urlString)
+        
+        if let url = URL(string: secureURLString) {
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.modalPresentationStyle = .pageSheet
+            viewController.present(safariViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func checkUrlForHttps(_ urlString: String) -> String {
+        // Backend'den gelen string icerisindeki 2 farkli url icin kod duzenlemesi
+        // Orn: Hakkari Universitesi
+        let parts = urlString.split(separator: " ", maxSplits: 1)
+        
+        // ilk url string'i kabul eder, devamini isleme almayiz
+        let trimmedUrlString = String(parts[0])
+        
+        // "Https:" varligini kontrol eder
+        if trimmedUrlString.hasPrefix("https://") {
+            return trimmedUrlString
+        } else {
+            return "https://\(trimmedUrlString)"
         }
     }
 }

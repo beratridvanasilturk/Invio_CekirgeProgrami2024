@@ -11,107 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="kDm-Kt-WYa">
-            <objects>
-                <navigationController id="rHH-q8-k7F" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fx2-9L-Tdb">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="AcO-1q-V6i" kind="relationship" relationship="rootViewController" id="epN-vu-dKD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="66U-hn-lJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2654" y="15"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="fhL-jg-0eZ">
-            <objects>
-                <tableViewController id="rhd-Tf-Njq" customClass="MainViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="8q8-2B-jP0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="0oA-5U-ii5">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0oA-5U-ii5" id="QzT-uk-iNT">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loading" id="kFg-YR-SiV">
-                                <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kFg-YR-SiV" id="mTD-bJ-2dz">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HXh-43-8pr">
-                                            <rect key="frame" x="178" y="3.3333333333333321" width="37" height="37"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="HXh-43-8pr" firstAttribute="centerX" secondItem="mTD-bJ-2dz" secondAttribute="centerX" id="Hkw-Zd-rZF"/>
-                                        <constraint firstItem="HXh-43-8pr" firstAttribute="centerY" secondItem="mTD-bJ-2dz" secondAttribute="centerY" id="LOk-uh-yBl"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rhd-Tf-Njq" id="zWB-Yv-An9"/>
-                            <outlet property="delegate" destination="rhd-Tf-Njq" id="b66-yf-OzW"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Main" image="list.clipboard" catalog="system" selectedImage="list.clipboard.fill" id="0SH-T2-TnR"/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="yzb-2Y-OXW"/>
-                    <connections>
-                        <outlet property="tableView" destination="8q8-2B-jP0" id="5SM-hW-thc"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MTq-hl-vv7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2393" y="751"/>
-        </scene>
-        <!--Favorites-->
-        <scene sceneID="YYL-8W-Nev">
-            <objects>
-                <viewController id="pOu-pX-KXw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Qoo-ER-0hx">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="SAR-9C-Rq1"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" selectedImage="heart.fill" id="vEC-gX-889"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8c-WA-lug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1486" y="751"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="oD0-Vu-OLH">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AcO-1q-V6i" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Paa-cN-C5N"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GRN-di-hZj">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="rhd-Tf-Njq" kind="relationship" relationship="viewControllers" id="IGH-28-Mmv"/>
-                        <segue destination="pOu-pX-KXw" kind="relationship" relationship="viewControllers" id="wzK-CX-4pJ"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ckn-il-5Ra" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1879" y="15"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="22G-j8-sAA">
             <objects>
@@ -237,24 +136,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="InvioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="TNP-mW-kvd">
                                 <rect key="frame" x="95" y="139" width="203" height="46.666666666666657"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-rH-FYF" customClass="EmptyAnimationView" customModule="InvioCekirgeProgrami2024" customModuleProvider="target">
-                                <rect key="frame" x="146.66666666666666" y="391" width="100" height="70"/>
-                                <color key="backgroundColor" name="InvioGreen"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Nlu-u8-Ert"/>
-                                    <constraint firstAttribute="height" constant="70" id="lwg-QF-s47"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dFf-lo-oHG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xg5-rH-FYF" firstAttribute="centerY" secondItem="7Ti-bb-2hr" secondAttribute="centerY" id="75g-ED-yy3"/>
                             <constraint firstItem="dFf-lo-oHG" firstAttribute="trailing" secondItem="o8C-i8-vQG" secondAttribute="trailing" constant="10" id="7ZW-9E-hEr"/>
                             <constraint firstItem="dFf-lo-oHG" firstAttribute="trailing" secondItem="TNP-mW-kvd" secondAttribute="trailing" constant="95" id="Ihr-sJ-qDb"/>
                             <constraint firstItem="TNP-mW-kvd" firstAttribute="leading" secondItem="dFf-lo-oHG" secondAttribute="leading" constant="95" id="d84-0p-Oun"/>
                             <constraint firstItem="o8C-i8-vQG" firstAttribute="leading" secondItem="dFf-lo-oHG" secondAttribute="leading" constant="10" id="dGm-Og-JCc"/>
-                            <constraint firstItem="xg5-rH-FYF" firstAttribute="centerX" secondItem="7Ti-bb-2hr" secondAttribute="centerX" id="gk7-Vo-BXx"/>
                             <constraint firstItem="dFf-lo-oHG" firstAttribute="bottom" secondItem="o8C-i8-vQG" secondAttribute="bottom" constant="10" id="hDr-MW-pCZ"/>
                             <constraint firstItem="TNP-mW-kvd" firstAttribute="top" secondItem="dFf-lo-oHG" secondAttribute="top" constant="80" id="qdr-jY-mSH"/>
                         </constraints>
@@ -271,13 +160,6 @@
     <resources>
         <image name="InvioLogo" width="198.33332824707031" height="46.666667938232422"/>
         <image name="arrow.up.forward.and.arrow.down.backward" catalog="system" width="128" height="117"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="heart.fill" catalog="system" width="128" height="107"/>
-        <image name="list.clipboard" catalog="system" width="98" height="128"/>
-        <image name="list.clipboard.fill" catalog="system" width="98" height="128"/>
-        <namedColor name="InvioGreen">
-            <color red="0.60699999332427979" green="0.8320000171661377" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="InvioLightGray">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

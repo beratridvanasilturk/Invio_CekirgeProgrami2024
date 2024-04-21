@@ -37,18 +37,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLD-PB-F3o">
-                                                <rect key="frame" x="38.000000000000014" y="0.0" width="203.33333333333337" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <rect key="frame" x="38" y="0.0" width="224" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" name="InvioGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT4-2F-Q29">
-                                                <rect key="frame" x="249.33333333333329" y="0.0" width="50.666666666666657" height="50"/>
+                                                <rect key="frame" x="270" y="0.0" width="30" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50.666666666666657" id="Nrq-t3-4T0"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Nrq-t3-4T0"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                                    <color key="baseForegroundColor" red="1" green="0.1080229422" blue="0.03981227054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="favButtonTapped" destination="4Pl-lJ-ZZ1" eventType="touchUpInside" id="4Df-q7-Wec"/>
                                                 </connections>

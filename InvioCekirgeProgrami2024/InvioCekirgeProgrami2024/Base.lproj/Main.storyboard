@@ -240,28 +240,32 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InvioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="TNP-mW-kvd">
-                                <rect key="frame" x="97.333333333333329" y="244.99999999999997" width="198.33333333333337" height="46.666666666666657"/>
+                                <rect key="frame" x="30" y="206" width="333" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="333" id="8Wo-qb-ZYq"/>
+                                    <constraint firstAttribute="height" constant="47" id="nMf-rt-Lt2"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dFf-lo-oHG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dFf-lo-oHG" firstAttribute="trailing" secondItem="TNP-mW-kvd" secondAttribute="trailing" constant="97.329999999999998" id="3Nr-Uh-cmh"/>
+                            <constraint firstItem="dFf-lo-oHG" firstAttribute="trailing" secondItem="TNP-mW-kvd" secondAttribute="trailing" constant="30" id="B5L-bp-1yl"/>
                             <constraint firstItem="ePX-lq-9aS" firstAttribute="leading" secondItem="dFf-lo-oHG" secondAttribute="leading" constant="30" id="LWq-DW-cyX"/>
-                            <constraint firstItem="TNP-mW-kvd" firstAttribute="leading" secondItem="dFf-lo-oHG" secondAttribute="leading" constant="97.329999999999998" id="TJd-Ez-TeS"/>
-                            <constraint firstItem="TNP-mW-kvd" firstAttribute="top" secondItem="dFf-lo-oHG" secondAttribute="top" constant="186" id="W1M-9U-tOq"/>
-                            <constraint firstItem="ePX-lq-9aS" firstAttribute="top" secondItem="TNP-mW-kvd" secondAttribute="bottom" constant="89.333333333333371" id="b56-EM-6Bf"/>
-                            <constraint firstItem="TNP-mW-kvd" firstAttribute="centerX" secondItem="7Ti-bb-2hr" secondAttribute="centerX" id="b7z-bz-4va"/>
+                            <constraint firstItem="TNP-mW-kvd" firstAttribute="top" secondItem="dFf-lo-oHG" secondAttribute="top" constant="147" id="TYh-5l-rWO"/>
+                            <constraint firstItem="dFf-lo-oHG" firstAttribute="bottom" secondItem="ePX-lq-9aS" secondAttribute="bottom" constant="281.66666666666663" id="bOf-Io-smc"/>
+                            <constraint firstItem="TNP-mW-kvd" firstAttribute="leading" secondItem="dFf-lo-oHG" secondAttribute="leading" constant="30" id="boB-3V-bhu"/>
                             <constraint firstItem="dFf-lo-oHG" firstAttribute="trailing" secondItem="ePX-lq-9aS" secondAttribute="trailing" constant="30" id="zNX-e8-mql"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="invioImageView" destination="TNP-mW-kvd" id="NUz-lP-aX6"/>
                         <segue destination="PoG-1y-v3q" kind="presentation" identifier="goToMainScene" id="Tlh-5q-hi7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbi-fN-rft" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="1"/>
+            <point key="canvasLocation" x="1257.2519083969464" y="0.70422535211267612"/>
         </scene>
     </scenes>
     <resources>

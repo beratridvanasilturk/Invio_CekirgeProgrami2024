@@ -6,6 +6,8 @@
 //
 
 // TODO:
+
+// - Landscape Modu Icin Ekran Constraints Check Edilecek
 // - Telefon Numaralari ve Website'leri detayli test edilecek. App Bug'a dusmemek icin olasi buglar fixlenecek
 // -
 // - Tanitim Screen Records Alinip Eklenecek

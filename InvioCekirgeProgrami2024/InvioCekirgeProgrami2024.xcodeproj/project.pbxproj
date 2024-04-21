@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9800EDD32BD50C2000341EEA /* FailAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9800EDD22BD50C2000341EEA /* FailAnimation.json */; };
+		9800EDD92BD510CE00341EEA /* SuccessAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9800EDD72BD510CE00341EEA /* SuccessAnimation.json */; };
 		98236F8A2BD2A5C700DE138F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98236F892BD2A5C700DE138F /* SplashViewController.swift */; };
 		98236F8D2BD2B2D300DE138F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 98236F8C2BD2B2D300DE138F /* Lottie */; };
 		985A1A582BCF19E500A620E4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A1A572BCF19E500A620E4 /* Array+Extensions.swift */; };
@@ -31,10 +33,11 @@
 		98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B7C2612BC9B3D400752196 /* ExpandableCell.xib */; };
 		98B7C2642BC9B3ED00752196 /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */; };
 		98B7C2662BC9B41A00752196 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2652BC9B41A00752196 /* SectionModel.swift */; };
-		98C2A97D2BD2BFE9008E638B /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 98C2A97C2BD2BFE9008E638B /* confetti.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9800EDD22BD50C2000341EEA /* FailAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FailAnimation.json; sourceTree = "<group>"; };
+		9800EDD72BD510CE00341EEA /* SuccessAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuccessAnimation.json; sourceTree = "<group>"; };
 		98236F892BD2A5C700DE138F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		985A1A572BCF19E500A620E4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		985A1A5B2BCF1F5F00A620E4 /* ExpandableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableModel.swift; sourceTree = "<group>"; };
@@ -58,7 +61,6 @@
 		98B7C2612BC9B3D400752196 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
 		98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		98B7C2652BC9B41A00752196 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
-		98C2A97C2BD2BFE9008E638B /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				98236F892BD2A5C700DE138F /* SplashViewController.swift */,
-				98C2A97C2BD2BFE9008E638B /* confetti.json */,
+				9800EDD72BD510CE00341EEA /* SuccessAnimation.json */,
+				9800EDD22BD50C2000341EEA /* FailAnimation.json */,
 			);
 			path = SplashController;
 			sourceTree = "<group>";
@@ -300,9 +303,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98C2A97D2BD2BFE9008E638B /* confetti.json in Resources */,
 				98A5F8182BBD64F6008AE472 /* Assets.xcassets in Resources */,
+				9800EDD32BD50C2000341EEA /* FailAnimation.json in Resources */,
 				98B7C25D2BC9B38F00752196 /* MainCell.xib in Resources */,
+				9800EDD92BD510CE00341EEA /* SuccessAnimation.json in Resources */,
 				98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */,
 				98A5F8162BBD64F5008AE472 /* Main.storyboard in Resources */,
 			);

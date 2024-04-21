@@ -11,63 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
-        <scene sceneID="22G-j8-sAA">
-            <objects>
-                <viewController storyboardIdentifier="MainViewController" id="PoG-1y-v3q" customClass="MainViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZER-vH-Yfc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="imH-Zz-X6z">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="764"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="N7G-nF-sE9">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N7G-nF-sE9" id="81p-Wb-Bfi">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBC-Ta-EIk">
-                                <rect key="frame" x="271" y="772" width="106" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="m6a-0S-Pfv"/>
-                                    <constraint firstAttribute="height" constant="70" id="mjh-wC-WmK"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="arrow.up.forward.and.arrow.down.backward" catalog="system" symbolScale="large"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="expandButtonTapped" destination="PoG-1y-v3q" eventType="touchUpInside" id="lfT-gA-sbH"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="aVs-53-rcA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="uBC-Ta-EIk" firstAttribute="bottom" secondItem="aVs-53-rcA" secondAttribute="bottom" id="LwR-dR-y34"/>
-                            <constraint firstItem="imH-Zz-X6z" firstAttribute="leading" secondItem="aVs-53-rcA" secondAttribute="leading" id="gGu-7G-AdS"/>
-                            <constraint firstItem="aVs-53-rcA" firstAttribute="trailing" secondItem="uBC-Ta-EIk" secondAttribute="trailing" constant="16" id="gtG-bt-ZEa"/>
-                            <constraint firstItem="aVs-53-rcA" firstAttribute="trailing" secondItem="imH-Zz-X6z" secondAttribute="trailing" id="iIk-bA-HOx"/>
-                            <constraint firstItem="imH-Zz-X6z" firstAttribute="top" secondItem="aVs-53-rcA" secondAttribute="top" id="mnX-MD-1yd"/>
-                            <constraint firstItem="uBC-Ta-EIk" firstAttribute="bottom" secondItem="aVs-53-rcA" secondAttribute="bottom" id="nT7-gF-nvT"/>
-                            <constraint firstItem="aVs-53-rcA" firstAttribute="bottom" secondItem="imH-Zz-X6z" secondAttribute="bottom" constant="78" id="uFC-dI-gDN"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="imH-Zz-X6z" id="2qo-Je-nkm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ji1-3H-Ibs" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2212.9770992366412" y="0.70422535211267612"/>
-        </scene>
         <!--Favorite List View Controller-->
         <scene sceneID="4dY-6R-wQK">
             <objects>
@@ -148,18 +91,72 @@
                             <constraint firstItem="TNP-mW-kvd" firstAttribute="top" secondItem="dFf-lo-oHG" secondAttribute="top" constant="80" id="qdr-jY-mSH"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="PoG-1y-v3q" kind="presentation" identifier="goToMainScene" id="Tlh-5q-hi7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbi-fN-rft" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1251.145038167939" y="0.70422535211267612"/>
         </scene>
+        <!--Main View Controller-->
+        <scene sceneID="h8g-AG-D2d">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="IwP-AO-Zpy" customClass="MainViewController" customModule="InvioCekirgeProgrami2024" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2xx-Aq-NTK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Kg-Mr-JP4">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6gg-7C-m9u">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gg-7C-m9u" id="Xzc-8A-aJU">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bk-Wo-ObT">
+                                <rect key="frame" x="335" y="760" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="oLo-Ks-VXp"/>
+                                    <constraint firstAttribute="height" constant="50" id="w0y-W2-7tz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="CollapseImage" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="expandButtonTapped" destination="IwP-AO-Zpy" eventType="touchUpInside" id="3hy-UR-iXz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="opk-0Q-OhP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Kg-Mr-JP4" firstAttribute="leading" secondItem="opk-0Q-OhP" secondAttribute="leading" id="5v0-ge-3qr"/>
+                            <constraint firstItem="opk-0Q-OhP" firstAttribute="trailing" secondItem="9Kg-Mr-JP4" secondAttribute="trailing" id="Ddp-e0-tNb"/>
+                            <constraint firstItem="9Kg-Mr-JP4" firstAttribute="top" secondItem="opk-0Q-OhP" secondAttribute="top" id="N5s-bI-QTY"/>
+                            <constraint firstItem="opk-0Q-OhP" firstAttribute="trailing" secondItem="6bk-Wo-ObT" secondAttribute="trailing" constant="8" id="Urm-VA-1br"/>
+                            <constraint firstItem="opk-0Q-OhP" firstAttribute="bottom" secondItem="9Kg-Mr-JP4" secondAttribute="bottom" id="ncX-Ny-5eC"/>
+                            <constraint firstItem="opk-0Q-OhP" firstAttribute="bottom" secondItem="6bk-Wo-ObT" secondAttribute="bottom" constant="8" id="pNp-dO-akT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MPw-6T-woj"/>
+                    <connections>
+                        <outlet property="tableView" destination="9Kg-Mr-JP4" id="4dV-0V-VFE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ztl-l5-cDM" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="1"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="CollapseImage" width="42.666667938232422" height="42.666667938232422"/>
         <image name="InvioLogo" width="198.33332824707031" height="46.666667938232422"/>
-        <image name="arrow.up.forward.and.arrow.down.backward" catalog="system" width="128" height="117"/>
         <namedColor name="InvioLightGray">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

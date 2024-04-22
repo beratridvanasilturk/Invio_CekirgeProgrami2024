@@ -160,7 +160,10 @@ final class ExpandableCell: UITableViewCell {
             return
         }
         
-        let webView = WKWebView(frame: UIScreen.main.bounds)
+        let webView = WKWebView()
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        webView.frame = viewController.view.bounds 
+        
         let request = URLRequest(url: url)
         webView.load(request)
         
@@ -175,7 +178,7 @@ final class ExpandableCell: UITableViewCell {
         let navigationController = UINavigationController(rootViewController: webViewController)
         viewController.present(navigationController, animated: true, completion: nil)
         
-        // UITableViewCell sinifi icerisinden navigate'e erisemedigimiz icin closure olarak tanimladik
+        // UITableViewCell sınıfı içerisinden navigate'e erişemediğimiz için closure olarak tanımladık
         goBack = {
             webViewController.dismiss(animated: true, completion: nil)
         }

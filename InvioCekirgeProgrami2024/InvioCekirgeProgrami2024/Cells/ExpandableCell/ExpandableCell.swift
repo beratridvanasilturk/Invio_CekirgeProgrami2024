@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import SafariServices
+import WebKit
 
 final class ExpandableCell: UITableViewCell {
     // MARK: - Props
-
+    private var goBack: (() -> Void)?
     static let cellIdentifier = String(describing: ExpandableCell.self)
     
     // MARK: - Outlets
@@ -124,7 +124,7 @@ final class ExpandableCell: UITableViewCell {
     @objc private func websiteButtonTapped() {
         if let website = model?.universityModel.website{
             if let viewController = self.findParentViewController() {
-                openURLInSafariSheet(urlString: website, from: viewController)
+                openURLInWebView(urlString: website, from: viewController)
             }
         }
     }
@@ -153,18 +153,35 @@ final class ExpandableCell: UITableViewCell {
         return formattedPhoneNumber
     }
     
-    private func openURLInSafariSheet(urlString: String, from viewController: UIViewController) {
-        guard urlString.count >= 10 else {
+    private func openURLInWebView(urlString: String, from viewController: UIViewController) {
+        guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
         }
-        let secureURLString = checkUrlForHttps(urlString)
         
-        if let url = URL(string: secureURLString) {
-            let safariViewController = SFSafariViewController(url: url)
-            safariViewController.modalPresentationStyle = .pageSheet
-            viewController.present(safariViewController, animated: true, completion: nil)
+        let webView = WKWebView(frame: UIScreen.main.bounds)
+        let request = URLRequest(url: url)
+        webView.load(request)
+        
+        let webViewController = UIViewController()
+        webViewController.view.addSubview(webView)
+        webViewController.title = model?.universityModel.name
+        
+        let backButton = UIBarButtonItem(title: "Geri", style: .plain, target: self, action: #selector(goBackAction))
+        
+        webViewController.navigationItem.leftBarButtonItem = backButton
+        
+        let navigationController = UINavigationController(rootViewController: webViewController)
+        viewController.present(navigationController, animated: true, completion: nil)
+        
+        // UITableViewCell sinifi icerisinden navigate'e erisemedigimiz icin closure olarak tanimladik
+        goBack = {
+            webViewController.dismiss(animated: true, completion: nil)
         }
+    }
+
+    @objc private func goBackAction() {
+        goBack?()
     }
     
     private func checkUrlForHttps(_ urlString: String) -> String {

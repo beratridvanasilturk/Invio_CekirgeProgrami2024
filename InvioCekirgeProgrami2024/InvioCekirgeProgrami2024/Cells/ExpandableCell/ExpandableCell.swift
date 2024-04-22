@@ -21,10 +21,10 @@ final class ExpandableCell: UITableViewCell {
     @IBOutlet weak var rectorLabel: UILabel!
     @IBOutlet weak var expendStackView: UIStackView!
     @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var universityNameLabel: UILabel!
     @IBOutlet weak var iconLabel: UILabel!
     
-    /// Icerigi kontrol eder, model de name harici herhangi bir data yoksa, expandable stack gizlenmesi icin kullanilir.
+    // Icerigi kontrol eder, model de name harici herhangi bir data yoksa, expandable stack'in gizlenmesi icin kullanilir.
     func iconLabelWillHide() -> Bool {
         var controllFlag = false
         
@@ -37,10 +37,10 @@ final class ExpandableCell: UITableViewCell {
         
         return controllFlag
     }
-
+    
     var model: ExpandableCellContentModel? {
         didSet {
-            label.text = model?.universityModel.name
+            universityNameLabel.text = model?.universityModel.name
             phoneLabel?.text = "Telefon: " + (model?.universityModel.phone ?? "Bulunamadı")
             faxLabel?.text = "Fax: " + (model?.universityModel.fax  ?? "Bulunamadı")
             websiteLabel?.text = "Website: " + (model?.universityModel.website ?? "Bulunamadı")
@@ -77,12 +77,13 @@ final class ExpandableCell: UITableViewCell {
         websiteLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(websiteButtonTapped)))
     }
     
-    // Safari Sheet Icin Kullanildi
+    // WebView Sheet Icin Kullanildi
     private func findParentViewController() -> UIViewController? {
-        // Kendini bir sonraki akran nesneye döndürerek ve sınıfını kontrol ederek gezinme islemi
         var parentResponder: UIResponder? = self
         while parentResponder != nil {
+            // Kendini bir sonraki akran nesneye döndürerek
             parentResponder = parentResponder?.next
+            // ve sınıfını kontrol ederek gezinme islemi
             if let viewController = parentResponder as? UIViewController {
                 return viewController
             }
@@ -90,16 +91,16 @@ final class ExpandableCell: UITableViewCell {
         return nil
     }
     
-    // Backendden gelen dataya gore tel no'yu yeniden duzenler, aranabilecek seviyeye getirir.
+    // Backendden gelen dataya gore tel no'yu yeniden duzenler.
     private func makePhoneCall(to phoneNumber: String) {
         var formattedNumber = phoneNumber.replacingOccurrences(of: "+", with: "")
         
         // Telefon numarası başında 0 rakamı yoksa, başına 0 ekler
-        // Orn: TcheckFavListEmptyrabzon Avrasya Universitesi Basinda Sifir Eksik
-          if !formattedNumber.hasPrefix("0") {
-              formattedNumber = "0" + formattedNumber
-          }
-          
+        // Orn: Trabzon Avrasya Universitesi Basinda Sifir Eksik
+        if !formattedNumber.hasPrefix("0") {
+            formattedNumber = "0" + formattedNumber
+        }
+        
         // Fazlalık olan haneleri siler
         if formattedNumber.count > 11 {
             formattedNumber = String(formattedNumber.prefix(11))
@@ -113,6 +114,7 @@ final class ExpandableCell: UITableViewCell {
         }
     }
     
+    // MARK: - Action Funcs
     @objc private func phoneButtonTapped() {
         if let phone = model?.universityModel.phone{
             if let phoneNumber = formatPhoneNumber(phone) {
@@ -129,7 +131,6 @@ final class ExpandableCell: UITableViewCell {
         }
     }
     
-    // MARK: Actions
     @IBAction private func favButtonTapped() {
         if let universityModel = model?.universityModel {
             PersistentManager.shared.checkFavorites(item: universityModel)
@@ -139,7 +140,7 @@ final class ExpandableCell: UITableViewCell {
     
     //MARK: - Helpers
     private func formatPhoneNumber(_ input: String) -> String? {
-        
+        // Regular ifadesi 0 ile 9 arasında olmayan tüm karakterleri siler tel noyu yeniden duzenleriz.
         let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         
         guard digits.count >= 10 else {
@@ -179,7 +180,7 @@ final class ExpandableCell: UITableViewCell {
             webViewController.dismiss(animated: true, completion: nil)
         }
     }
-
+    
     @objc private func goBackAction() {
         goBack?()
     }

@@ -62,7 +62,7 @@ final class MainViewController: UIViewController {
         self.navigationController?.pushViewController(favListViewController, animated: true)
     }
     
-
+    
     // MARK: - Actions
     @IBAction private func expandButtonTapped() {
         viewModel.closeExpandedCells()
@@ -82,7 +82,7 @@ extension MainViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             viewModel.sectionSelected(indexPath: indexPath)
             tableView.reloadData()
-        // Content icerigi tiklandiginda
+            // Content icerigi tiklandiginda
         } else {
             viewModel.contentSelected(indexPath: indexPath)
             tableView.reloadRows(at: [indexPath], with: .none)

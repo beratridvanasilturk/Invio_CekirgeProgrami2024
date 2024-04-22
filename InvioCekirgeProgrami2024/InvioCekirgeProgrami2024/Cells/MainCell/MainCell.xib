@@ -61,7 +61,7 @@
             <viewLayoutGuide key="safeArea" id="1AG-aV-U3c"/>
             <connections>
                 <outlet property="iconLabel" destination="ZiP-Cv-gyh" id="OiI-Md-yXg"/>
-                <outlet property="label" destination="zZE-W7-3V8" id="Ay2-e0-a24"/>
+                <outlet property="provinceLabel" destination="zZE-W7-3V8" id="Ay2-e0-a24"/>
             </connections>
             <point key="canvasLocation" x="40" y="20"/>
         </tableViewCell>

@@ -34,7 +34,7 @@ final class MainViewModel {
             
             guard error == nil else {
                 print("⚠️⚠️⚠️ FETCDATA ERROR:")
-                print(error?.localizedDescription ?? "Tanimlanamayan Hata")
+                print(error?.localizedDescription ?? "Tanimlanamayan Fetching Hatasi")
                 return
             }
             

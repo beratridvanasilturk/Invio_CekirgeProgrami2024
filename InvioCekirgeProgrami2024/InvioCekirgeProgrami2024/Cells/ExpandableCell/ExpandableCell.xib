@@ -140,9 +140,9 @@
                 <outlet property="favoriteButton" destination="CT4-2F-Q29" id="xAs-C3-rpA"/>
                 <outlet property="faxLabel" destination="B4q-h2-V3e" id="rWD-3r-nRJ"/>
                 <outlet property="iconLabel" destination="DqE-Io-yjv" id="34j-LP-Tdl"/>
-                <outlet property="label" destination="xLD-PB-F3o" id="Qs5-Gy-g4E"/>
                 <outlet property="phoneLabel" destination="Ak5-8X-dkA" id="7xr-zp-gFE"/>
                 <outlet property="rectorLabel" destination="STv-Hc-sjx" id="Q9F-W3-I74"/>
+                <outlet property="universityNameLabel" destination="xLD-PB-F3o" id="Qs5-Gy-g4E"/>
                 <outlet property="websiteLabel" destination="jH4-Ha-TEy" id="H29-sU-XQE"/>
             </connections>
             <point key="canvasLocation" x="149.61832061068702" y="19.718309859154932"/>
@@ -157,7 +157,7 @@
             <color red="0.20069456099999999" green="0.20069456099999999" blue="0.20069456099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="InvioGreen">
-            <color red="0.60784313725490191" green="0.83137254901960778" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.60799998044967651" green="0.83099997043609619" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

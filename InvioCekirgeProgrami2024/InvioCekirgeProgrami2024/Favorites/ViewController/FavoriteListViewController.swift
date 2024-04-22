@@ -11,9 +11,9 @@ import Lottie
 final class FavoriteListViewController: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     private let viewModel = FavoriteListViewModel()
-    var animationView: LottieAnimationView?
+    private var animationView: LottieAnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ final class FavoriteListViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         
         coordinator.animate(alongsideTransition: { _ in
-            // Ekran boyutları güncellendiğinde yapılacak işlemler
+            // Ekran boyutları güncellendiğinde main.bonds'u yeniden atamada kullanildi
             self.animationView?.removeFromSuperview()
             self.checkFavListEmpty()
         }, completion: nil)

@@ -12,12 +12,12 @@ class MainCell: UITableViewCell {
     static let cellIdentifier = String(describing: MainCell.self)
     
     // MARK: - Outlest
-    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var provinceLabel: UILabel!
     @IBOutlet private weak var iconLabel: UILabel!
     
     var model: SectionModel? {
         didSet {
-            label.text = model?.dataModel.province
+            provinceLabel.text = model?.dataModel.province
             iconLabel.text = (model?.hideContent ?? false) ? "+" : "-"
             if model?.contentList.isEmpty == true {
                 iconLabel.text = " "

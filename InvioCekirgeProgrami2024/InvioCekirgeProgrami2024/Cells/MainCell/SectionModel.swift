@@ -18,5 +18,4 @@ struct SectionModel {
         self.hideContent = hideContent
         self.contentList = contentList
     }
-    
 }

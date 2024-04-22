@@ -31,7 +31,6 @@ class PersistentManager {
     weak var delegate: PersistentManagerDelegate?
     
     private func addFavorites(item: UniversitiesResponseModel) {
-        
         let favoriModel = FavoriModel()
         
         favoriModel.name = item.name
@@ -48,7 +47,6 @@ class PersistentManager {
     }
     
     private func removeFavorites(item: FavoriModel) {
-        
         try! realm.write {
             realm.delete(item)
         }
@@ -56,9 +54,7 @@ class PersistentManager {
     
     func getFavorites() -> [ExpandableCellContentModel] {
         let favorites = realm.objects(FavoriModel.self)
-        
         let universities = favorites.map { favoriModel in
-            
             let universityModel = UniversitiesResponseModel(
                 name: favoriModel.name,
                 phone: favoriModel.phone,
@@ -75,9 +71,7 @@ class PersistentManager {
     }
     
     func checkFavorites(item: UniversitiesResponseModel) {
-        
         let favorites = realm.objects(FavoriModel.self)
-        
         if let targetItem = favorites.first(where: { $0.name == item.name }) {
             removeFavorites(item: targetItem)
         } else {
@@ -87,7 +81,6 @@ class PersistentManager {
     }
     
     func isFavorited(item: UniversitiesResponseModel?) -> Bool {
-        
         guard let item else { return false }
         let favorites = realm.objects(FavoriModel.self)
         return favorites.contains { $0.name == item.name }

@@ -14,8 +14,10 @@ _**InvioCekirgeProgrami2024 Uygulama Ekran Görüntüleri:**_
 
 **iPhone 11 Ekran Kaydı:**
 
-https://github.com/beratridvanasilturk/InvioCekirgeProgrami2024/assets/99040236/66bd9245-c006-44e4-a886-4062462f376b
-https://github.com/beratridvanasilturk/InvioCekirgeProgrami2024/assets/99040236/c882bbbc-f670-4c88-9484-c26a9ad8d578
+
+https://github.com/beratridvanasilturk/InvioCekirgeProgrami2024/assets/99040236/c185c9f8-454d-4a9c-a147-c46bd4c75298
+
+
 
 **iPhone 11 Ekran Resimleri:**
 

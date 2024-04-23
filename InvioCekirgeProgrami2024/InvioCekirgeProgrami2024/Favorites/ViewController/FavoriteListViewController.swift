@@ -62,8 +62,8 @@ final class FavoriteListViewController: UIViewController {
     // MARK: - Animation Funcs
     private func startEmptyListAnimation() {
         let animationWidth: CGFloat = 180
-        let animationHeight: CGFloat = 180
-        animationView = .init(name: "emptyAnimation")
+        let animationHeight: CGFloat = 250
+        animationView = .init(name: "invioCustomAnimation")
         if let animationView {
             let screenWidth = view.bounds.width
             let screenHeight = view.bounds.height
@@ -71,6 +71,7 @@ final class FavoriteListViewController: UIViewController {
             let imageCenterY = screenHeight / 2
             let animationFrame = CGRect(x: imageCenterX - animationWidth / 2, y: imageCenterY - animationHeight / 2 - 50, width: animationWidth, height: animationHeight)
             animationView.frame = animationFrame
+            animationView.loopMode = .loop
             animationView.contentMode = .scaleToFill
             animationView.animationSpeed = 0.7
             view.addSubview(animationView)

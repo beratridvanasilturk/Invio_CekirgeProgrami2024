@@ -7,7 +7,11 @@ Bu Projede;
  - **UIKit** Framework'ü,
  - **MVVM** Mimarisi,
  - Favorilere eklenen Üniversiteleri lokal veri tabanında saklamak için **Realm Kütüphanesi**,
- - Henüz favorilenmiş bir Üniversite olmaması durumunda ise **Lottie Kütüphanesi** ile animasyon kullanılmıştır.
+ - Henüz favorilenmiş bir Üniversite olmaması durumunda ise **Lottie Kütüphanesi** ile _custom animasyon_* kullanılmıştır.
+
+
+***Custom Animasyon** : Figma ile oluşturduğum "Invio Empty Favorite List" Custom Lottie Animasyonuna bu linkten ulaşabilirsiniz: https://lottiefiles.com/animations/invioemptyfavlist-NW84TNKU41
+
 
 
 _**InvioCekirgeProgrami2024 Uygulama Ekran Görüntüleri:**_

@@ -1,13 +1,17 @@
 # InvioCekirgeProgrami2024
 
-Invio 2024 Cekirge Programi Universiteler uygulamasında Türkiye'deki tüm Üniversiteler backend'den alınarak kullanıcılara listelenir. Uygulama içerisinde kullanıcının dilediği Üniversiteleri favorilere ekleyebildiği ve Üniversiteleri telefonla arayıp, web sitelerine erişebildiği bu uygulama Invio'nun 2024 Çekirge Programı dahilinde bir Challange uygulamasıdır.
-
+Invio 2024 Çekirge Programı Üniversiteler uygulamasında Türkiye'deki tüm Üniversiteler backend servisinden alınarak kullanıcılara listelenir. Uygulama, kullanıcıların tercih ettikleri üniversiteleri belirleyip favorilere ekleyebildikleri ve istedikleri takdirde üniversiteler ile telefonla iletişime geçebilecekleri veya web sitelerine erişebilecekleri bir platform sunar. 
+Bu uygulama, Invio'nun 2024 Çekirge Programı için geliştirilmiş bir challenge uygulamasıdır.
 
 Bu Projede;
  - **UIKit** Framework'ü,
  - **MVVM** Mimarisi,
  - Favorilere eklenen Üniversiteleri lokal veri tabanında saklamak için **Realm Kütüphanesi**,
- - Henüz favorilenmiş bir Üniversite olmaması durumunda ise **Lottie Kütüphanesi** ile animasyon kullanılmıştır.
+ - Henüz favorilenmiş bir Üniversite olmaması durumunda ise **Lottie Kütüphanesi** ile _custom animasyon_* kullanılmıştır.
+
+***Custom Animasyon** : Figma ile oluşturduğum "Invio Empty Favorite List" Custom Lottie Animasyonuna bu linkten ulaşabilirsiniz: https://lottiefiles.com/animations/invio-empty-favorite-list-PECQLU51m0 
+
+![invioCekirgeAnimation](https://github.com/beratridvanasilturk/InvioCekirgeProgrami2024/assets/99040236/aaf2ad17-28aa-4a54-92ce-0626520c3ad2)
 
 
 _**InvioCekirgeProgrami2024 Uygulama Ekran Görüntüleri:**_

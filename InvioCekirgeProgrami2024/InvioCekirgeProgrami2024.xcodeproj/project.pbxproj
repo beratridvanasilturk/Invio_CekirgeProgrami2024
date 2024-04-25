@@ -30,7 +30,7 @@
 		98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B7C2612BC9B3D400752196 /* ExpandableCell.xib */; };
 		98B7C2642BC9B3ED00752196 /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */; };
 		98B7C2662BC9B41A00752196 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7C2652BC9B41A00752196 /* SectionModel.swift */; };
-		98E7B98F2BD8027F000A3534 /* invioCustomAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 98E7B98E2BD8027F000A3534 /* invioCustomAnimation.json */; };
+		98DFAF4E2BD9D29500585065 /* invioCekirgeAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 98DFAF4D2BD9D29500585065 /* invioCekirgeAnimation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,7 @@
 		98B7C2612BC9B3D400752196 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
 		98B7C2632BC9B3ED00752196 /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		98B7C2652BC9B41A00752196 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
-		98E7B98E2BD8027F000A3534 /* invioCustomAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invioCustomAnimation.json; sourceTree = "<group>"; };
+		98DFAF4D2BD9D29500585065 /* invioCekirgeAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invioCekirgeAnimation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				985A1A5D2BCF1FBB00A620E4 /* Extensions */,
-				98E7B98E2BD8027F000A3534 /* invioCustomAnimation.json */,
+				98DFAF4D2BD9D29500585065 /* invioCekirgeAnimation.json */,
 				98A5F80E2BBD64F5008AE472 /* AppDelegate.swift */,
 				98A5F8102BBD64F5008AE472 /* SceneDelegate.swift */,
 			);
@@ -297,11 +297,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98E7B98F2BD8027F000A3534 /* invioCustomAnimation.json in Resources */,
 				98A5F8182BBD64F6008AE472 /* Assets.xcassets in Resources */,
 				98B7C25D2BC9B38F00752196 /* MainCell.xib in Resources */,
 				98B7C2622BC9B3D400752196 /* ExpandableCell.xib in Resources */,
 				98A5F8162BBD64F5008AE472 /* Main.storyboard in Resources */,
+				98DFAF4E2BD9D29500585065 /* invioCekirgeAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

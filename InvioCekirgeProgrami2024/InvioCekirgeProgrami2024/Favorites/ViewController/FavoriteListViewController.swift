@@ -63,7 +63,7 @@ final class FavoriteListViewController: UIViewController {
     private func startEmptyListAnimation() {
         let animationWidth: CGFloat = 180
         let animationHeight: CGFloat = 250
-        animationView = .init(name: "invioCustomAnimation")
+        animationView = .init(name: "invioCekirgeAnimation")
         if let animationView {
             let screenWidth = view.bounds.width
             let screenHeight = view.bounds.height

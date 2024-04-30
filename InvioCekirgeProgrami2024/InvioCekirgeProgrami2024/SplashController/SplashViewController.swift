@@ -18,9 +18,18 @@ final class SplashViewController: UIViewController {
     // MARK: - Funcs
     private func getData() {
         let viewModel = MainViewModel()
-        viewModel.fetchData(updatePage: false) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.navigateToMainScreen(viewModel: viewModel)
+        viewModel.fetchData { success in
+            if success {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.navigateToMainScreen(viewModel: viewModel)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Hata", message: "Veri alınamadı. Lütfen tekrar deneyin.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                print("Fetch işlemi başarısız oldu. Kullanıcı bu ekranda kalmalı. ⚠️")
             }
         }
     }

@@ -52,7 +52,7 @@ final class MainViewController: UIViewController {
     
     @objc private func refreshData() {
         viewModel.resetContent()
-        viewModel.fetchData{
+        viewModel.fetchData{_ in 
             self.updateUI()
         }
     }
@@ -92,7 +92,7 @@ extension MainViewController: UITableViewDelegate {
     // MARK: - Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if viewModel.paginationFlag(indexPath: indexPath) {
-            viewModel.fetchData(updatePage: true) {
+            viewModel.fetchData(updatePage: true) {_ in 
                 self.updateUI()
                 print("🔁🔁🔁 PAGINATION SUCCEED")
             }

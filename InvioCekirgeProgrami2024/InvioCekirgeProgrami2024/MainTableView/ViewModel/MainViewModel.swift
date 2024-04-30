@@ -13,9 +13,10 @@ final class MainViewModel {
     private var totalPage = 1
     private var currentPage = 1
     private (set) var sections: [SectionModel] = []
+    private let reachability = Reachability()
     
     // MARK: - Funcs
-    func fetchData(updatePage: Bool = false, completion: (() -> Void)? = nil) {
+    func fetchData(updatePage: Bool = false, completion: @escaping (Bool) -> Void) {
         
         if updatePage {
             currentPage += 1
@@ -24,57 +25,66 @@ final class MainViewModel {
         let baseUrlString = "https://storage.googleapis.com/invio-com/usg-challenge/universities-at-turkey/"
         let urlString = baseUrlString + "page-\(currentPage).json"
         
-        guard let url = URL(string: urlString) else {
-            print("😵😵😵 URL ERROR")
+        guard reachability.isConnectedToNetwork() else {
+            completion(false)
             return
         }
         
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url) { data, response, error in
+        if let url = URL(string: urlString) {
             
-            guard error == nil else {
-                print("⚠️⚠️⚠️ FETCDATA ERROR:")
-                print(error?.localizedDescription ?? "Tanimlanamayan Fetching Hatasi")
-                return
-            }
-            
-            guard let data = data else {
-                return
-            }
-            
-            var dataArray = [DataResponseModel]()
-            let decoder = JSONDecoder()
-            
-            do {
-                let responseModel = try decoder.decode(MainResponseModel.self, from: data)
-                self.totalPage = responseModel.totalPage ?? 1
-                if let parsingData = responseModel.data {
-                    dataArray.append(contentsOf: parsingData)
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: url) { data, response, error in
+                
+                guard error == nil else {
+                    print("⚠️⚠️⚠️ FETCDATA ERROR:")
+                    print(error?.localizedDescription ?? "Tanimlanamayan Fetching Hatasi")
+                    completion(false) // Fetch işlemi başarısız
+                    return
                 }
                 
-                // Sectionlari doldururuz
-                dataArray.forEach { dataModel in
-                    
-                    var contentList = [ExpandableCellContentModel]()
-                    
-                    dataModel.universities?.forEach({ model in
-                        let contentModel = ExpandableCellContentModel(universityModel: model)
-                        contentList.append(contentModel)
-                    })
-                    
-                    let sectionItem = SectionModel(dataModel: dataModel, contentList: contentList)
-                    self.sections.append(sectionItem)
+                guard let data = data else {
+                    completion(false) // Fetch işlemi başarısız
+                    return
                 }
                 
-                print("🟡🟡🟡 Cities Count = \(self.sections.count)")
+                var dataArray = [DataResponseModel]()
+                let decoder = JSONDecoder()
                 
-                completion?()
-                
-            } catch(let err) {
-                print("⭕️⭕️⭕️ PARSING ERROR \(err.localizedDescription)")
+                do {
+                    let responseModel = try decoder.decode(MainResponseModel.self, from: data)
+                    self.totalPage = responseModel.totalPage ?? 1
+                    if let parsingData = responseModel.data {
+                        dataArray.append(contentsOf: parsingData)
+                    }
+                    
+                    // Sectionları doldururuz
+                    dataArray.forEach { dataModel in
+                        
+                        var contentList = [ExpandableCellContentModel]()
+                        
+                        dataModel.universities?.forEach({ model in
+                            let contentModel = ExpandableCellContentModel(universityModel: model)
+                            contentList.append(contentModel)
+                        })
+                        
+                        let sectionItem = SectionModel(dataModel: dataModel, contentList: contentList)
+                        self.sections.append(sectionItem)
+                    }
+                    
+                    print("🟡🟡🟡 Cities Count = \(self.sections.count)")
+                    
+                    completion(true) // Fetch işlemi başarılı
+                    
+                } catch(let err) {
+                    print("⭕️⭕️⭕️ PARSING ERROR \(err.localizedDescription)")
+                    completion(false) // Fetch işlemi başarısız
+                }
             }
+            dataTask.resume()
+        } else {
+            print("😵😵😵 URL ERROR")
+            completion(false) // Fetch işlemi başarısız
         }
-        dataTask.resume()
     }
     
     func closeExpandedCells() {
